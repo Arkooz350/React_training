@@ -1,0 +1,20 @@
+html{
+  padding: 0px;
+  margin: 0px;
+   font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style:oblique;
+}#listemenu{
+  list-style: none;
+  display: flex;
+  position: relative;
+  justify-content:space-around;
+  background: lightblue;
+  border-radius: 15px;
+  border: 2px;
+  border-color: gold;
+  border-style: inset;
+
+
+}
