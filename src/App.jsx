@@ -4,6 +4,7 @@ import "./index.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Acceuil from "./Pages/Acceuil";
 import Decouverte from "./Pages/Decouverte";
+import './index.css'
 
 const App = () => {
   return (

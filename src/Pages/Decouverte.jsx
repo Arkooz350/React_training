@@ -1,11 +1,13 @@
 import React from "react";
 import Nav from "../Composant/Nav";
 
+
+
 const Decouverte = () => {
   return (
-    <div>
+    <div className="div1PDecouverte">
       <Nav />
-      <h1>Page Découverte</h1>
+      <h1 id="h1Outils">🛠️🛠️🛠️</h1>
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum
         recusandae possimus, deserunt odio quo odit, labore pariatur atque

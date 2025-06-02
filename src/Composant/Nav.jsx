@@ -1,20 +1,20 @@
 import React from "react";
-import { Links, NavLink } from "react-router";
-import Acceuil from "../Pages/Acceuil";
-import Decouverte from "../Pages/Decouverte";
-
+import { NavLink } from "react-router-dom";
 
 const Nav = () => {
   return (
-    <div className="=navigation">
+    <div className="navigation">
       <ul>
-        <NavLink to="/Acceuil" >
-        <li>{Acceuil}</li>
-        </NavLink>
-        <NavLink to="/Decouverte">
-        <li>{Decouverte}</li>
+        <NavLink to="/" className={(nav) => (nav.isActive ? "nav.active" : "")}>
+          Home🏠
         </NavLink>
       </ul>
+      <NavLink
+        to="/Decouverte"
+        className={(nav) => (nav.isActive ? "nav.active" : "")}
+      >
+        To discover 🔎
+      </NavLink>
     </div>
   );
 };

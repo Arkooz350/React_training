@@ -1,10 +1,44 @@
+
 html{
-     background: rgb(112, 131, 139);
+     background: beige;
      font-family: "Montserrat", sans-serif;
      font-optical-sizing: auto;
      font-style:oblique;
-}.navbaracceuil{
-background: red;
-border: 20px;
-border-color: brown;
+
+}.navigation{
+     padding: 0px;
+     margin: 0px;
+     background: rgb(121, 192, 39);
+     border-radius: 40px;
+     justify-content: center;
+     gap: 100px;
+     justify-items: center;
+     display: flex;
+     position:static
+}.navigation:hover{
+background-color: #6b6767da;
+transition: 1250ms ease-in-out;
+-webkit-box-shadow: inset -1px 3px 8px 5px #000000, 2px 5px 16px 0px #6b6767da, -10px -19px 34px -1px rgba(0,0,0,0.44); 
+box-shadow: inset -1px 3px 8px 5px #000000, 2px 5px 16px 0px #6b6767da, -10px -19px 34px -1px rgba(0,0,0,0.44);
+
+}#h1Outils{
+     background-color: lightslategray;
+     border-radius: 45px;
+     
+     padding: 0px;
+     margin: 20px;
+     justify-content: center;
+     justify-items: center;
+     position: relative;
+     display:ruby-text ;
+     right:-46%;
+}.SectionAcceuil{
+     background: #798556;
+     padding: 0px;
+     margin: 20px;
+     border-radius: 45px;
+     place-items: center;
+     
+}.nav.isActive{
+     background-color: red;
 }
