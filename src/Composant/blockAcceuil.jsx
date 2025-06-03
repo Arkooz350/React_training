@@ -1,6 +1,6 @@
 import React from 'react';
 
-const blockAcceuil = () => {
+const BlockAcceuil = () => {
     return (
         <div>
             
@@ -8,4 +8,4 @@ const blockAcceuil = () => {
     );
 };
 
-export default blockAcceuil;
+export default BlockAcceuil;

@@ -1,39 +1,30 @@
 import React, { useState } from "react";
 import Nav from "../Composant/Nav";
+import Formular from "../Composant/Formular";
 
 function Acceuil() {
-  const [Chiffre, SetChiffre] = useState(0);
-  const handleClick = () => {
-    SetChiffre(Chiffre + 1);
-    console.dir(Chiffre);
-  }
-  const handleClickpers = () => {
-    const [pers, Setpers] = useState([
-      {
-        nom: "toto",
-        prenom: "titi",
-        age: "85",
-      },
-    ]);
-    console.log(Setpers({ ...pers, age: pers.age + 1 }));
-    console.log(pers);
-  }
+  const [pers, SetPers] = useState({
+    nom: "toto",
+    prenom: "titi",
+    age: 25,
+    genre: "M",
+  });
+  const handleclickpers = () => {
+    SetPers({ ...pers, age: pers.age + 1 });
+  };
   return (
     <div className="SectionAcceuil">
       <Nav />
       <h1>Bienvenue ! </h1>
-      <p className="paragrapheChiffre">{Chiffre}</p>
-      <button Chiffre={Chiffre} onClick={handleClick} className="btn-click">
-        🔘
-      </button>
       <div>
-        <button onClick={handleClickpers}>Ajouter + 1 a votre age</button>
-        <section>
-          <li>1</li>
-          <li>2</li>
-          <li>3</li>
-        </section>
+        <button onClick={handleclickpers}>Ajouter + 1 a votre age</button>
+        <p className="paragrapheChiffre">{pers.age}</p>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
       </div>
+        <Formular />
+  
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat minus
         tempora quod deleniti aspernatur, ipsum eligendi atque excepturi
@@ -60,5 +51,6 @@ function Acceuil() {
       </p>
     </div>
   );
-  }
+}
+
 export default Acceuil;

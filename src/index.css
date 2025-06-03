@@ -1,6 +1,6 @@
 
 html{
-     background: beige;
+     background: bisque;
      font-family: "Montserrat", sans-serif;
      font-optical-sizing: auto;
      font-style:oblique;
@@ -8,7 +8,7 @@ html{
 }.navigation{
      padding: 0px;
      margin: 0px;
-     background: rgb(121, 192, 39);
+     background: #ffa07a;
      border-radius: 40px;
      justify-content: center;
      gap: 100px;
@@ -16,10 +16,10 @@ html{
      display: flex;
      position:static
 }.navigation:hover{
-background-color: #6b6767da;
+background-color: bisque;
 transition: 1250ms ease-in-out;
--webkit-box-shadow: inset -1px 3px 8px 5px #000000, 2px 5px 16px 0px #6b6767da, -10px -19px 34px -1px rgba(0,0,0,0.44); 
-box-shadow: inset -1px 3px 8px 5px #000000, 2px 5px 16px 0px #6b6767da, -10px -19px 34px -1px rgba(0,0,0,0.44);
+-webkit-box-shadow: inset -1px 3px 8px 5px #f5f5dc , 2px 5px 16px 0px #ffa07a, -10px -19px 34px -1px #ffa07a; 
+box-shadow: inset -1px 3px 8px 5px #ffa07a, 2px 5px 16px 0px #6b6767da, -10px -19px 34px -1px#ffa07a;
 
 }#h1Outils{
      background-color: lightslategray;
@@ -33,7 +33,7 @@ box-shadow: inset -1px 3px 8px 5px #000000, 2px 5px 16px 0px #6b6767da, -10px -1
      display:ruby-text ;
      right:-46%;
 }.SectionAcceuil{
-     background: #798556;
+     background: #f5f5dc;
      padding: 0px;
      margin: 20px;
      border-radius: 45px;
@@ -41,4 +41,18 @@ box-shadow: inset -1px 3px 8px 5px #000000, 2px 5px 16px 0px #6b6767da, -10px -1
      
 }.nav.isActive{
      background-color: red;
+}.form{
+     list-style:none;
+     display: list-item;
+     align-items: center;
+     justify-content: space-around;
+     font-weight: 400;
+     font-style: normal;
+     border-radius: 50px;
+     gap: 15px;
+     
+} input{
+     display: flex;
+
 }
+
