@@ -1,0 +1,107 @@
+<svg width="1918" height="246" viewBox="0 0 1918 246" xmlns="http://www.w3.org/2000/svg">
+  <!-- Fond principal -->
+  <rect width="1918" height="246" fill="#E8EDDF"/>
+  
+  <!-- Motif géométrique subtil -->
+  <g opacity="0.03">
+    <rect x="0" y="0" width="80" height="80" fill="#333533" transform="rotate(45 40 40)"/>
+    <rect x="160" y="0" width="80" height="80" fill="#333533" transform="rotate(45 200 40)"/>
+    <rect x="320" y="0" width="80" height="80" fill="#333533" transform="rotate(45 360 40)"/>
+    <rect x="480" y="0" width="80" height="80" fill="#333533" transform="rotate(45 520 40)"/>
+    <rect x="640" y="0" width="80" height="80" fill="#333533" transform="rotate(45 680 40)"/>
+    <rect x="800" y="0" width="80" height="80" fill="#333533" transform="rotate(45 840 40)"/>
+    <rect x="960" y="0" width="80" height="80" fill="#333533" transform="rotate(45 1000 40)"/>
+    <rect x="1120" y="0" width="80" height="80" fill="#333533" transform="rotate(45 1160 40)"/>
+    <rect x="1280" y="0" width="80" height="80" fill="#333533" transform="rotate(45 1320 40)"/>
+    <rect x="1440" y="0" width="80" height="80" fill="#333533" transform="rotate(45 1480 40)"/>
+    <rect x="1600" y="0" width="80" height="80" fill="#333533" transform="rotate(45 1640 40)"/>
+    <rect x="1760" y="0" width="80" height="80" fill="#333533" transform="rotate(45 1800 40)"/>
+  </g>
+  
+  <!-- Bande d'accent colorée -->
+  <rect x="0" y="200" width="1918" height="46" fill="#CFDBD5"/>
+  
+  <!-- Élément tech abstrait - circuit board pattern -->
+  <g transform="translate(100, 60)">
+    <!-- Lignes de circuit principales -->
+    <path d="M0 40 L120 40 L120 80 L200 80" stroke="#333533" stroke-width="2" fill="none"/>
+    <path d="M40 0 L40 40 L80 40 L80 120" stroke="#333533" stroke-width="2" fill="none"/>
+    <path d="M160 40 L160 0" stroke="#333533" stroke-width="2" fill="none"/>
+    
+    <!-- Points de connexion -->
+    <circle cx="0" cy="40" r="4" fill="#F5CB5C"/>
+    <circle cx="40" cy="40" r="4" fill="#333533"/>
+    <circle cx="80" cy="40" r="4" fill="#333533"/>
+    <circle cx="120" cy="40" r="4" fill="#F5CB5C"/>
+    <circle cx="120" cy="80" r="4" fill="#333533"/>
+    <circle cx="160" cy="40" r="4" fill="#333533"/>
+    <circle cx="200" cy="80" r="4" fill="#F5CB5C"/>
+    <circle cx="40" cy="0" r="4" fill="#333533"/>
+    <circle cx="160" cy="0" r="4" fill="#333533"/>
+    <circle cx="80" cy="120" r="4" fill="#333533"/>
+  </g>
+  
+  <!-- Élément tech abstrait - hexagone -->
+  <g transform="translate(1600, 80)">
+    <path d="M30 0 L90 0 L120 52 L90 104 L30 104 L0 52 Z" fill="none" stroke="#333533" stroke-width="2"/>
+    <path d="M40 20 L80 20 L100 52 L80 84 L40 84 L20 52 Z" fill="none" stroke="#F5CB5C" stroke-width="2"/>
+    <circle cx="60" cy="52" r="8" fill="#F5CB5C"/>
+  </g>
+  
+  <!-- Lignes de code abstraites -->
+  <g transform="translate(450, 90)" opacity="0.3">
+    <rect x="0" y="0" width="60" height="3" fill="#333533"/>
+    <rect x="70" y="0" width="40" height="3" fill="#F5CB5C"/>
+    <rect x="120" y="0" width="80" height="3" fill="#333533"/>
+    
+    <rect x="0" y="15" width="100" height="3" fill="#333533"/>
+    <rect x="110" y="15" width="30" height="3" fill="#333533"/>
+    
+    <rect x="20" y="30" width="40" height="3" fill="#333533"/>
+    <rect x="70" y="30" width="60" height="3" fill="#F5CB5C"/>
+    <rect x="140" y="30" width="40" height="3" fill="#333533"/>
+    
+    <rect x="20" y="45" width="80" height="3" fill="#333533"/>
+    <rect x="110" y="45" width="50" height="3" fill="#333533"/>
+    
+    <rect x="0" y="60" width="50" height="3" fill="#333533"/>
+    <rect x="60" y="60" width="70" height="3" fill="#333533"/>
+  </g>
+  
+  <!-- Élément central - logo placeholder -->
+  <g transform="translate(909, 73)">
+    <!-- Carré tech avec effet de profondeur -->
+    <rect x="0" y="0" width="100" height="100" fill="#242423"/>
+    <rect x="10" y="10" width="80" height="80" fill="#E8EDDF"/>
+    <rect x="20" y="20" width="60" height="60" fill="#242423"/>
+    <rect x="30" y="30" width="40" height="40" fill="#F5CB5C"/>
+    
+    <!-- Détails tech -->
+    <circle cx="50" cy="50" r="15" fill="#242423"/>
+    <circle cx="50" cy="50" r="8" fill="#F5CB5C"/>
+  </g>
+  
+  <!-- Éléments décoratifs - points -->
+  <g opacity="0.2">
+    <circle cx="800" cy="123" r="2" fill="#333533"/>
+    <circle cx="820" cy="123" r="2" fill="#333533"/>
+    <circle cx="840" cy="123" r="2" fill="#333533"/>
+    <circle cx="860" cy="123" r="2" fill="#333533"/>
+    
+    <circle cx="1058" cy="123" r="2" fill="#333533"/>
+    <circle cx="1078" cy="123" r="2" fill="#333533"/>
+    <circle cx="1098" cy="123" r="2" fill="#333533"/>
+    <circle cx="1118" cy="123" r="2" fill="#333533"/>
+  </g>
+  
+  <!-- Ligne d'accent dorée -->
+  <rect x="0" y="0" width="1918" height="2" fill="#F5CB5C" opacity="0.5"/>
+  
+  <!-- Élément tech - barre de progression -->
+  <g transform="translate(1200, 110)">
+    <rect x="0" y="0" width="200" height="26" fill="#CFDBD5" rx="13"/>
+    <rect x="0" y="0" width="140" height="26" fill="#F5CB5C" rx="13"/>
+    <circle cx="140" cy="13" r="10" fill="#242423"/>
+    <circle cx="140" cy="13" r="4" fill="#F5CB5C"/>
+  </g>
+</svg>

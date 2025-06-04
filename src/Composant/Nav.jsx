@@ -3,18 +3,11 @@ import { NavLink } from "react-router-dom";
 
 const Nav = () => {
   return (
-    <div className="navigation">
+    <div className="navigation" style={{ textAlign : "center" }}>
       <ul>
-        <NavLink to="/" className={(nav) => (nav.isActive ? "nav.active" : "")}>
-          Home🏠
-        </NavLink>
+        <NavLink to="/" className='NavAcceuil'>Home🏠</NavLink>
       </ul>
-      <NavLink
-        to="/Decouverte"
-        className={(nav) => (nav.isActive ? "nav.active" : "")}
-      >
-        To discover 🔎
-      </NavLink>
+      <NavLink to="/Decouverte" >To discover </NavLink>
     </div>
   );
 };
