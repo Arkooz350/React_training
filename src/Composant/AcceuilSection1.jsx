@@ -1,9 +1,12 @@
 import React from "react";
 import boutiqueimg from "../assets/boutiquepizza.jpg";
-
+import Acceuil from "../Pages/Acceuil";
 const AcceuilSection1 = () => {
+    const HandleMouse = (e)  => {
+        console.log(e.target.value)
+    }
   return (
-    <div className="sectiongaucheAc">
+    <div className="sectiongaucheAc" onMouseMove={HandleMouse}>
       <img
         className="imagegauche"
         src={boutiqueimg}

@@ -7,7 +7,7 @@ import imageGarage from "./assets/garage.jpg"
 import imagepizza from "./assets/boutiquepizza.jpg"
 
 createRoot(document.getElementById("root")).render(
-   <StrictMode>
+   // <StrictMode>
     <App />
-   </StrictMode> 
+   // </StrictMode> 
 );
