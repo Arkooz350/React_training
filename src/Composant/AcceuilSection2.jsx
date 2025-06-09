@@ -1,5 +1,5 @@
 import React from 'react';
-import imageplateau from '../assets/garage.jpg'
+import imageplateau from '../assets/Toyota.jpg'
 
 const AcceuilSection2 = () => {
     return (

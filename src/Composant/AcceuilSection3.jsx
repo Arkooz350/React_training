@@ -1,5 +1,5 @@
 import React from 'react';
-import imageLogement from "../assets/logment.jpg"
+import imageLogement from "../assets/citroen.jpeg"
 
 const AcceuilSection3 = () => {
     return (

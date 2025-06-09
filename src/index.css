@@ -187,29 +187,50 @@ input {
 }
 .sectiongaucheAc {
   width: 500px;
-  border: 5px;
-  border-style: solid;
-  border-color: #f5cb5c;
+
   border-radius: 50px;
   justify-content: left;
   position: relative;
   justify-items: flex-end;
   display: inline-flex;
-  left: -400px;
+
   vertical-align: top;
 }
 .imggarage {
   top: 500px;
-  /* opacity: 50%; */
-  display:block;
+
+  display: block;
   justify-items: flex-end;
   justify-content: right;
 }
 .imagedroiteAc {
   width: 500px;
-  border: 5px;
-  border-style: solid;
-  border-color: #f5cb5c;
+  border-radius: 50px;
+  justify-content: right;
+  justify-items: flex-end;
+  position: relative;
+  display: inline-flex;
+  vertical-align: top;
+}
+.imagedroiteAc:hover,
+.sectiongaucheAc:hover,
+.imgmidleAC:hover {
+  -webkit-box-shadow: 5px 5px 5px 0px #f5cb5c, inset 4px 4px 15px 0px #f5cb5c,
+    5px 5px 15px 5px rgba(0, 0, 0, 0);
+  box-shadow: 15px 5px 35px 5px #f5cb5c, inset 4px 4px 15px 0px #f5cb5c,
+    5px 5px 15px 5px rgba(0, 0, 0, 0);
+}
+.middletextAc h3 {
+  text-align: center;
+  justify-items: center;
+}
+.middletextAc p {
+  text-align: center;
+  justify-items: center;
+}
+.imgmidleAC {
+  width: 500px;
+
   border-radius: 50px;
   justify-content: right;
   justify-items: flex-end;
@@ -217,29 +238,12 @@ input {
   display: inline-flex;
   vertical-align: top;
   margin-right: -425px;
-  right: 500px;
+margin-right: 15px
 
-}.imagedroiteAc:hover , .sectiongaucheAc:hover {
--webkit-box-shadow: 5px 5px 5px 0px #f5cb5c, inset 4px 4px 15px 0px #f5cb5c, 5px 5px 15px 5px rgba(0,0,0,0); 
-box-shadow: 5px 5px 5px 0px #f5cb5c, inset 4px 4px 15px 0px #f5cb5c, 5px 5px 15px 5px rgba(0,0,0,0);
-}.middletextAc h3{
-  text-align: center;
-  justify-items: center;
-}.middletextAc p {
-  text-align: center;
-  justify-items: center;
-
-}.imgmidleAC{
-   width: 500px;
-  border: 5px;
-  border-style: solid;
-  border-color: #f5cb5c;
-  border-radius: 50px;
-  justify-content: right;
-  justify-items: flex-end;
+}.allimage{
+  background: #242423;
+  border-radius: 25px;
+  display: flex;
   position: relative;
-  display: inline-flex;
-  vertical-align: top;
-  margin-right: -425px;
-  right: 500px;
+  height: 650px;
 }

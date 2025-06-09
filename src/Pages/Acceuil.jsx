@@ -6,47 +6,42 @@ import AcceuilSection3 from "../Composant/AcceuilSection3";
 import imageLogment from "../assets/logment.jpg";
 import imageGarage from "../assets/garage.jpg";
 import imagepizza from "../assets/boutiquepizza.jpg";
-import HandleMouse from '../Composant/AcceuilSection1'
-import LoadingButtonGroup from '../Composant/button'
-
+import HandleMouse from "../Composant/AcceuilSection1";
+import LoadingButtonGroup from "../Composant/button";
 
 const Acceuil = (e) => {
-    console.log(e)
+  console.log(e);
   if (imagepizza >= imageLogment) {
-
   }
   return (
     <div className="divAcceuil" style={{ justifyItems: "center" }}>
       <Nav />
-      <section
-        className="Section1"
-        style={{ display: "flex", textAlign: "center" }}
+
+      <div
+        className="middletextAc"
+        style={{
+          display: "block",
+          justifyContent: "center",
+          textAlign: "center",
+          marginBottom: "10em",
+        }}
       >
-        <h2>
-          Bienvenue !
-          <p>
-            Ce site permet de trouvez des outils les plus performent du net !{" "}
-          </p>
-        </h2>
-      </section>
-      <AcceuilSection1 /> 
-      <AcceuilSection2 />
-      <AcceuilSection3 />
-      <div className="middletextAc">
-        <h3>
-          Simplifiez votre quotidien avec nos outils de recherche intelligents
-        </h3>
+        <h1>Bienvenue sur votre solution de mobilité groupe !</h1>
         <p>
-          La vie moderne nous pousse constamment à chercher les meilleures
-          solutions autour de nous. <br></br> ce soit pour savourer un délicieux
-          repas,<br></br>entretenir votre véhicule ou dénicher le logement
-          parfait,<br></br> nous avons créé les outils qu'il vous faut pour
-          gagner du temps et faire les bons choix.<br></br>{" "}
+          Nous révolutionnons la location de véhicules spacieux en proposant des
+          minibus 9 places neufs et parfaitement entretenus à des tarifs défiant
+          toute concurrence.<br></br> Que ce soit pour un voyage en famille, une
+          sortie d'entreprise ou un événement sportif,<br></br> nous avons la
+          solution idéale pour vous.{" "}
         </p>
+        <div className="allimage">
+          <AcceuilSection1 />
+          <AcceuilSection2 />
+          <AcceuilSection3 />
+        </div>
       </div>
-      <LoadingButtonGroup/>
+      <LoadingButtonGroup />
     </div>
-    
   );
 };
 

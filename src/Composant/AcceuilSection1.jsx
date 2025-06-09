@@ -1,5 +1,5 @@
 import React from "react";
-import boutiqueimg from "../assets/boutiquepizza.jpg";
+import boutiqueimg from "../assets/Peugeot.jpg";
 import Acceuil from "../Pages/Acceuil";
 const AcceuilSection1 = () => {
     const HandleMouse = (e)  => {

@@ -1,13 +1,33 @@
+import Link from "@mui/material/Link";
+
 import React from "react";
 import { NavLink } from "react-router-dom";
 
 const Nav = () => {
+  let handleClick = "";
   return (
-    <div className="navigation" style={{ textAlign : "center" }}>
+    <div className="navigation" style={{ textAlign: "center" }}>
       <ul>
-        <NavLink to="/" className='NavAcceuil'>Home🏠</NavLink>
+        <NavLink
+          to="/"
+          className="NavAcceuil"
+          style={{ textDecoration: "none", color: "blue" }}
+        >
+          Home🏠
+        </NavLink>
       </ul>
-      <NavLink to="/Decouverte" >To discover </NavLink>
+      <NavLink
+        onSubmit={
+          (handleClick = (click) => {
+            click.preventDefault();
+            console.log(click);
+          })
+        }
+        to="/Decouverte"
+        style={{ textDecoration: "none", color: "blue" }}
+      >
+        To discover{" "}
+      </NavLink>
     </div>
   );
 };
