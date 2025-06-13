@@ -7,12 +7,17 @@ import imageLogment from "../assets/logment.jpg";
 import imageGarage from "../assets/garage.jpg";
 import imagepizza from "../assets/boutiquepizza.jpg";
 import HandleMouse from "../Composant/AcceuilSection1";
-import LoadingButtonGroup from "../Composant/button";
+import LoadingButtonGroup from "../Composant/Select";
+import RequetApi from "../Composant/RequetApi";
+import Compteur from "../Composant/Compteur";
+import Jour from "../Composant/Jour";
+import SousBlock from "../Composant/SousBlock";
 
 const Acceuil = (e) => {
   console.log(e);
-  if (imagepizza >= imageLogment) {
-  }
+  const handleSubmit = (el) => {
+    console.log(el);
+  };
   return (
     <div className="divAcceuil" style={{ justifyItems: "center" }}>
       <Nav />
@@ -41,6 +46,14 @@ const Acceuil = (e) => {
         </div>
       </div>
       <LoadingButtonGroup />
+
+      <Jour/>
+      <div className="allblock1" style={{ display: "flex", gap: "20em" }}>
+        <div className="block1info">
+         <SousBlock/>
+        </div>
+        <div className="block2conso"></div>
+      </div>
     </div>
   );
 };

@@ -246,4 +246,26 @@ margin-right: 15px
   display: flex;
   position: relative;
   height: 650px;
-}
+}.Select{
+  display: flex;
+  position: relative;
+  justify-content: center;
+  padding: 0px;
+  margin: 0px;
+  text-align: center;
+  background-color:#242423;
+  border-radius: 10px;
+  border-color: #ff8000;
+  border: 5px;
+  margin-left: 50px;
+}.block1info , .block2conso{
+  display:inline-flex;
+  position: relative;
+  width: 500px;
+  height: 560px;
+  background-color: #242423;
+  gap: 25px;
+  margin: 15px;
+  border-radius: 45px;
+} 
+
