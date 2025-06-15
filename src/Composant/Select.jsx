@@ -5,32 +5,39 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import { useState } from "react";
+import FirstDiv from "./FirstDiv";
+import { useEffect } from "react";
 
 export default function BasicSelect() {
-  const [age, setAge] = useState("");
+  const [serveurURL , setserveurURL] = useState ("https://tyradex.vercel.app/api/v1/pokemon/bacabouh")
+  const [vehicule, setvehicule] = useState("");
+  useEffect (()=> {
+
+  })
 
   const handleChange = (event) => {
-    setAge(event.target.value);
+    setvehicule(event.target.value);
+    const VIH = <Select vehicule={vehicule}></Select>;
+    console.log(VIH);
+    console.log(VIH.props.vehicule);
   };
   return (
-    <Box sx={{ minWidth: 190 }}>
-      <FormControl className="Select" fullWidth>
-        <InputLabel id="demo-simple-select-label">
-          Choisie ton véhicule
-        </InputLabel>
-        <Select
-          required={true}
-          labelId="demo-simple-select-label"
-          id="demo-simple-select"
-          value={age}
-          label="Age"
-          onChange={handleChange}
-        >
-          <MenuItem value="Peugeot">Peugeot</MenuItem>
-          <MenuItem value="Citroen">Citroen</MenuItem>
-          <MenuItem value="Toyota">Toyota</MenuItem>
-        </Select>
-      </FormControl>
-    </Box>
+    <div>
+      <InputLabel style={{ display: "flex", marginTop: "15px" }}>
+        Chosse your car{" "}
+      </InputLabel>
+      <Select
+        labelId="demo-simple-select-label"
+        id="demo-simple-select"
+        required={true}
+        onChange={handleChange}
+        defaultValue="Peugeot"
+        style={{ display: "flex" }}
+      >
+        <MenuItem value="Citroen"> Citroen</MenuItem>
+        <MenuItem value="Toyota"> Toyota</MenuItem>
+        <MenuItem value="Peugeot"> Peugeot</MenuItem>
+      </Select>
+    </div>
   );
 }

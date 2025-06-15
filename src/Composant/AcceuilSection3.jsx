@@ -5,6 +5,7 @@ const AcceuilSection3 = () => {
   return (
     <div className="imgmidleAC">
       <img
+      alt="Citroen"
         src={imageLogement}
         className="imgLogment"
         style={{
@@ -12,6 +13,7 @@ const AcceuilSection3 = () => {
           width: "500px",
           objectFit: "cover",
           borderRadius: "50px",
+          
         }}
       ></img>
     </div>

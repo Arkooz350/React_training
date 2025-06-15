@@ -28,6 +28,11 @@ const Nav = () => {
       >
         To discover{" "}
       </NavLink>
+      <ul>
+        <NavLink to="/ville_a_decouvrire"  style={{ textDecoration: "none", color: "blue" }}>
+          
+         Ville a découvrire</NavLink>
+     </ul>
     </div>
   );
 };

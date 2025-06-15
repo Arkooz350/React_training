@@ -7,6 +7,7 @@ const AcceuilSection2 = () => {
       <img
         className="imggarage"
         src={imageplateau}
+        alt="Toyota"
         style={{
           width: "500px",
           height: "400px",
