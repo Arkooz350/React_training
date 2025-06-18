@@ -9,17 +9,12 @@ import FirstDiv from "./FirstDiv";
 import { useEffect } from "react";
 
 export default function BasicSelect() {
-  const [serveurURL , setserveurURL] = useState ("https://tyradex.vercel.app/api/v1/pokemon/bacabouh")
   const [vehicule, setvehicule] = useState("");
-  useEffect (()=> {
-
-  })
-
   const handleChange = (event) => {
     setvehicule(event.target.value);
     const VIH = <Select vehicule={vehicule}></Select>;
-    console.log(VIH);
-    console.log(VIH.props.vehicule);
+    console.log(event.target.value)
+    
   };
   return (
     <div>

@@ -1,0 +1,11 @@
+.DivTrueComposantA {
+    background: green;
+    text-align: center;
+    display: flex;
+    border-radius: 30px;
+    width: 80%;
+    margin: 10% auto;
+    transition: ease-in-out (2s);
+    transform: translateY(10%);
+    
+}

@@ -1,10 +1,9 @@
 import "./main";
 import React from "react";
-import "./index.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Acceuil from "./Pages/Acceuil";
 import Decouverte from "./Pages/Decouverte";
-import './index.css'
+import "./Style/index.css"
 import Ville_a_decouvrire from "./Pages/Ville_a_decouvrire";
 
 
