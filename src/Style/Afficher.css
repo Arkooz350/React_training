@@ -7,5 +7,8 @@
     margin: 10% auto;
     transition: ease-in-out (2s);
     transform: translateY(10%);
+}.Overflow{
+    transition:  transform ease-in-out 1500ms;
+    transform: translateY(45px);
     
 }

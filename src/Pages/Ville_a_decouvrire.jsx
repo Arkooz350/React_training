@@ -13,17 +13,46 @@ import { villeinfos } from "../Composant/Tableaux/TableauxVille";
 import { Children } from "react";
 
 function Ville_a_decouvrire({ isVisible, onToggle }) {
-  const [show, setShow] = useState(false);
-  const handleToggle = (e) => {
-    e.preventDefault();
-    setShow((el) => !el);
-    console.log(show);
-  };
- 
-  function Infos({ villeinfos, index }) {
-    villeinfos.map
-  }
 
+  const [villeChoisi , setVilleChoisi ] = useState()
+  const handleToggle = (e , ville) => {
+    e.preventDefault()
+    setVilleChoisi(ville)
+    console.log(ville);
+  };
+  const displayVille = () => {
+     return villeinfos.map((el) => (
+    <div>
+        <img
+          src={el.image}
+          alt={el.alt}
+          style={{
+            height: "100px",
+            width: "100px",
+            borderRadius: "40px",
+            cursor: "pointer",
+          }}
+        />
+        <label
+          style={{
+            display: "block",
+            background: "grey",
+            borderRadius: "5px",
+            opacity: "40%",
+          }}
+        >
+          {el.name}
+        </label>
+        <button
+          style={{ height: "50px", width: "50px" }}
+          onClick={(e)=> handleToggle(e ,el)
+          }
+        >
+          Afficher plus + 
+        </button>
+   </div>
+    ));
+  };
   return (
     <div className="mainDiv">
       <Nav />
@@ -36,7 +65,9 @@ function Ville_a_decouvrire({ isVisible, onToggle }) {
           borderRadius: "15px",
           justifyItems: "center",
         }}
+        
       >
+       
         <div
           className="imgDiv"
           style={{
@@ -45,152 +76,11 @@ function Ville_a_decouvrire({ isVisible, onToggle }) {
             marginTop: "5em",
             justifyContent: "center",
           }}
-        >
-          <form>
-            <img
-              src={image_tower}
-              alt="effeil-tower"
-              style={{
-                height: "100px",
-                width: "100px",
-                borderRadius: "40px",
-                cursor: "pointer",
-              }}
-            />
-            <label
-              style={{
-                display: "block",
-                background: "grey",
-                borderRadius: "5px",
-                opacity: "40%",
-              }}
-            >
-              Paris
-            </label>
-            <button
-              style={{ height: "50px", width: "50px" }}
-              onClick={handleToggle}
-            >
-              Entrer
-            </button>
-          </form>
-          <form action="">
-            <img
-              src={image_parc}
-              alt="parc"
-              style={{
-                height: "100px",
-                width: "100px",
-                borderRadius: "40px",
-                cursor: "pointer",
-              }}
-            />
-
-            <label
-              style={{
-                display: "block",
-                background: "grey",
-                borderRadius: "5px",
-                opacity: "40%",
-              }}
-            >
-              Parc d'attraction
-            </label>
-            <button
-              style={{ height: "50px", width: "50px" }}
-              onClick={handleToggle }
-            >
-              Entrer
-            </button>
-          </form>
-          <form action="">
-            <img
-              src={image_plage}
-              alt="plage"
-              style={{
-                height: "100px",
-                width: "100px",
-                borderRadius: "40px",
-                cursor: "pointer",
-              }}
-            />
-            <label
-              style={{
-                display: "block",
-                background: "grey",
-                borderRadius: "5px",
-                opacity: "40%",
-              }}
-            >
-              Plage
-            </label>
-            <button
-              style={{ height: "50px", width: "50px" }}
-              onClick={handleToggle}
-            >
-              Entrer
-            </button>
-          </form>
-          <form action="">
-            <img
-              src={image_nice}
-              alt="Nice"
-              style={{
-                height: "100px",
-                width: "100px",
-                borderRadius: "40px",
-                cursor: "pointer",
-              }}
-            />
-            <label
-              style={{
-                display: "block",
-                background: "grey",
-                borderRadius: "5px",
-                opacity: "40%",
-              }}
-            >
-              Nice
-            </label>
-            <button
-              style={{ height: "50px", width: "50px" }}
-              onClick={handleToggle}
-            >
-              Entrer
-            </button>
-          </form>
-          <form action="">
-            <img
-              src={image_rennes}
-              alt="rennes"
-              style={{
-                height: "100px",
-                width: "100px",
-                borderRadius: "40px",
-                cursor: "pointer",
-              }}
-            />
-            <label
-              style={{
-                display: "block",
-                background: "grey",
-                borderRadius: "5px",
-                opacity: "40%",
-              }}
-            >
-              Rennes
-            </label>
-            <button
-              style={{ height: "50px", width: "50px" }}
-              onClick={handleToggle}
-            >
-              Entrer
-            </button>
-          </form>
-        </div>
+        > {displayVille()}</div>
       </div>
-      <div className="Overflow">
-        <ComposantA isVisible={show} onToggle={handleToggle} />
+      <div className="Overflow" >
+         {villeChoisi &&  <ComposantA  onToggle={handleToggle}
+         text={villeChoisi.text}/>}
       </div>
     </div>
   );
