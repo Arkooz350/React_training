@@ -3,7 +3,7 @@ import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Acceuil from "./Pages/Acceuil";
 import Decouverte from "./Pages/Decouverte";
-import "./Style/index.css"
+import "./Style/Acceuil.css"
 import Ville_a_decouvrire from "./Pages/Ville_a_decouvrire";
 
 

@@ -1,16 +1,11 @@
 import React, { use } from "react";
-import image_tower from "../assets/effeil_tower.jpeg";
-import image_parc from "../assets/parc.jpeg";
-import image_nice from "../assets/nice.jpeg";
-import image_plage from "../assets/plage.jpeg";
-import image_rennes from "../assets/rennes.jpeg";
 import Nav from "../Composant/Nav";
 import Afficher from "../Composant/VilleAfficher/Afficher";
 import Detail_Ville from "../Composant/ComposantPageVille_a_decouvrire/Detail_Ville";
 import { useState } from "react";
 import ComposantA from "../Composant/VilleAfficher/Afficher";
 import { villeinfos } from "../Composant/Tableaux/TableauxVille";
-import { Children } from "react";
+
 
 function Ville_a_decouvrire({ isVisible, onToggle }) {
 
@@ -82,7 +77,9 @@ function Ville_a_decouvrire({ isVisible, onToggle }) {
          {villeChoisi &&  <ComposantA  onToggle={handleToggle}
          text={villeChoisi.text}/>}
       </div>
+      
     </div>
+
   );
 }
 

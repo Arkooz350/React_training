@@ -1,0 +1,74 @@
+html {
+  background: #333533;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-style: oblique;
+  color: #cfdbd5;
+  /* background-color:black; */
+}
+.navigation {
+  padding: 0px;
+  margin: 0px;
+  background: #f5cb5c;
+  border-radius: 40px;
+  justify-content: center;
+  gap: 100px;
+  justify-items: center;
+  display: flex;
+  position: static;
+}
+.navigation:hover {
+  background-color: #242423;
+  transition: 1250ms ease-in-out;
+  -webkit-box-shadow: inset -1px 3px 8px 5px #f5f5dc, 2px 5px 16px 0px #f5f5dc,
+    -10px -19px 34px -1px #f5f5dc;
+  box-shadow: inset -1px 3px 8px 5px #f5cb5c, 2px 5px 16px 0px #6b6767da,
+    -1px -1px 35px -1px#f5f5dc;
+}
+#imgOutils {
+  border-radius: 45px;
+  padding: 0px;
+  margin: 0px;
+  justify-content: center;
+  justify-items: center;
+  position: relative;
+  display: inline-flex;
+  z-index: -1;
+}
+input {
+  display: flex;
+}
+.imagePeugeot {
+  position: relative;
+  border-radius: 50px;
+  height: 400px;
+  width: 500px;
+}
+.allimage{
+  background: #242423;
+  border-radius: 25px;
+  display: flex;
+  position: relative;
+  height: 650px;
+
+}.block1info , .block2conso{
+  display:inline-flex;
+  position: relative;
+  width: 500px;
+  height: 560px;
+  background-color: #242423;
+  gap: 25px;
+  margin: 15px;
+  border-radius: 45px;
+}.InputGo{
+     display:inline-block;
+}.InputGo > input{
+    border-radius: 15px;
+}.BlockForm{
+    display: inline-block;
+    width: 50%;
+    background:#f5cb5c;
+    margin-top: 3em;
+    border-radius: 15px;
+}
+

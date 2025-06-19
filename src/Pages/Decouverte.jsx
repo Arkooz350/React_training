@@ -1,8 +1,5 @@
 import React from "react";
 import Nav from "../Composant/Nav";
-import Widjet1 from "../Composant/widjet1";
-import Widjet2 from "../Composant/widjet2";
-import Widjet3 from "../Composant/widjet3";
 import image from "../assets/image5.jpg";
 
 const Decouverte = () => {
@@ -43,9 +40,36 @@ const Decouverte = () => {
           votre lieu de travail
         </p>
       </div>
-      <Widjet1 />
-      <Widjet2 />
-      <Widjet3 />
+    
+       <section className="WidjetText1">
+        <img
+          id="imgResto"
+          width="50"
+          height="50"
+          src="https://img.icons8.com/3d-fluency/94/dining-room.png"
+          alt="Restaurant"
+        />
+        <p>Tu veux trouvez les meilleur restaurant Halal dans le coin ?</p>
+      </section>
+       <section className="WidjetText2">
+        <img
+          id="imgOutils"
+          width="50"
+          height="50"
+          src="https://img.icons8.com/3d-fluency/94/maintenance.png"
+          alt="Garage"
+        />
+        <p>Trouve le meilleur garage proche de chez toi ! </p>
+      </section>
+       <section className="WidjetText3">
+        <img
+          width="50"
+          height="50"
+          src="https://img.icons8.com/3d-fluency/94/room.png"
+          alt="room"
+        />
+        <p>Touve ton logement proche de ton lieu de travail !</p>
+      </section>
     </div>
   );
 };

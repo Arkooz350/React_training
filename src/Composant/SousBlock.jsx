@@ -1,7 +1,5 @@
 import React from "react";
-import AcceuilSection1 from "./AcceuilSection1";
-import AcceuilSection2 from "./AcceuilSection2";
-import AcceuilSection3 from "./AcceuilSection3";
+
 import Select from "./Select";
 
 const SousBlock = () => {
