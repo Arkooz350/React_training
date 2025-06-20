@@ -1,9 +1,9 @@
-import React from "react";
+import React, { createElement } from "react";
 import Acceuil from "../../../Pages/Acceuil";
 import { car } from "../../Tableaux/ShowCar";
 import { useState } from "react";
 
-const ComposantCitroenAccueil = ({ text, move, response }) => {
+const ComposantCitroenAccueil = ({ text, move,  }) => {
   const [divText, setdivText] = useState(false);
   const divStyle = {
     transform: "translateX(45px)",
@@ -16,18 +16,8 @@ const ComposantCitroenAccueil = ({ text, move, response }) => {
   for (let index = 0; index < textShow.length; index++) {
     const element = textShow[index];
   }
-
   return (
-    <div
-      style={{
-        display: "inline-flex",
-        marginTop: "10px",
-        background: "#f5cb5c",
-        color: "#000000",
-        borderRadius: "40px",
-        transition:"ease"
-      }}
-    >
+    <div className="DivCarac">
       <h3>{textShow}</h3>
     </div>
   );
