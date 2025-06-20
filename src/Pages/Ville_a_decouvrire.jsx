@@ -1,7 +1,6 @@
 import React, { use } from "react";
 import Nav from "../Composant/Nav";
 import Afficher from "../Composant/VilleAfficher/Afficher";
-import Detail_Ville from "../Composant/ComposantPageVille_a_decouvrire/Detail_Ville";
 import { useState } from "react";
 import ComposantA from "../Composant/VilleAfficher/Afficher";
 import { villeinfos } from "../Composant/Tableaux/TableauxVille";
