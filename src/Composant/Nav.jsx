@@ -1,30 +1,38 @@
 import Link from "@mui/material/Link";
-
+import SearchIcon from '@mui/icons-material/Search';
 import React from "react";
 import { NavLink } from "react-router-dom";
-
+import HomeIcon from '@mui/icons-material/Home';
+import LocationCityIcon from '@mui/icons-material/LocationCity';
+import LoginIcon from '@mui/icons-material/Login';
 const Nav = () => {
   return (
-    <div className="navigation" style={{ textAlign: "center" }}>
+    <div className="navigation" >
       <ul>
-        <NavLink
+        <NavLink 
           to="/"
           className="NavAcceuil"
-          style={{ textDecoration: "none", color: "blue" }}
         >
-          Home🏠
+     <HomeIcon color="primary" fontSize="large"/>
         </NavLink>
       </ul>
+      <ul>
       <NavLink
         to="/Decouverte"
-        style={{ textDecoration: "none", color: "blue" }}
       >
-        To discover{" "}
+      <SearchIcon color="primary" fontSize="large"/>
+      
       </NavLink>
+      </ul>
       <ul>
-        <NavLink to="/ville_a_decouvrire"  style={{ textDecoration: "none", color: "blue" }}>
+        <NavLink to="/ville_a_decouvrire"  >
           
-         Ville a découvrire</NavLink>
+         <LocationCityIcon color="primary" fontSize="large"/></NavLink>
+     </ul>
+     <ul>
+      <NavLink to="/login">
+<LoginIcon fontSize="large" color="primary"/>
+      </NavLink>
      </ul>
     </div>
   );

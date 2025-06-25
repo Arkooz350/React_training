@@ -8,22 +8,22 @@ html {
 }
 .navigation {
   padding: 0px;
-  margin: 0px;
-  background: #f5cb5c;
+  margin: 25px;
+  width: 50%;
+  background: #bff23d;
   border-radius: 40px;
   justify-content: center;
-  gap: 100px;
+  gap: 10%;
   justify-items: center;
   display: flex;
-  position: static;
 }
 .navigation:hover {
-  background-color: #242423;
-  transition: 1250ms ease-in-out;
-  -webkit-box-shadow: inset -1px 3px 8px 5px #f5f5dc, 2px 5px 16px 0px #f5f5dc,
-    -10px -19px 34px -1px #f5f5dc;
-  box-shadow: inset -1px 3px 8px 5px #f5cb5c, 2px 5px 16px 0px #6b6767da,
-    -1px -1px 35px -1px#f5f5dc;
+  background-color:	#bff23d;
+  transition: 1000ms ease;
+  -webkit-box-shadow: inset -1px 3px 8px 5px #bff23d, 2px 5px 16px 0px ,
+    -10px -19px 34px -1px #bff23d;
+  box-shadow: inset -1px 3px 8px 5px #bff23d, 2px 5px 16px 0px #6b6767da,
+    -1px -1px 35px -1px#bff23d;
 }
 #imgOutils {
   border-radius: 45px;
@@ -38,23 +38,18 @@ html {
 input {
   display: flex;
 }
-.imagePeugeot {
-  position: relative;
-  border-radius: 50px;
-  height: 400px;
-  width: 500px;
-}
 .allimage{
   background: #242423;
   border-radius: 25px;
-  display: flex;
+  display: inline-flex;
   position: relative;
-  height: 650px;
+  height: 75%;
+  z-index: 1;
 
-}.imagePeugeot:hover ,.imgToyota:hover, .imgCitroen:hover{
+}.imgPeugeot:hover ,.imgToyota:hover, .imgCitroen:hover{
 -webkit-box-shadow: 0px 0px 0px 5px #A0A0A0, inset 0px 10px 27px -8px #141414, inset 0px -10px 27px -8px #A31925, -50px -37px 0px -2px rgba(245,203,92,0); 
-box-shadow: 0px 0px 0px 5px #f5cb5c, inset 0px 10px 27px -8px #141414, inset 0px -10px 27px -8px #A31925, -50px -37px 0px -2px rgba(245,203,92,0);
- transform: scale(1.1);
+box-shadow: 0px 0px 0px 5px #f5f5dc, inset 0px 10px 27px -8px #141414, inset 0px -10px 27px -8px #A31925, -50px -37px 0px -2px rgba(245,203,92,0);
+ transform: scale(1);
 }
 .block1info , .block2conso{
   display:inline-flex;
@@ -72,19 +67,53 @@ box-shadow: 0px 0px 0px 5px #f5cb5c, inset 0px 10px 27px -8px #141414, inset 0px
 }.BlockForm{
     display: inline-block;
     width: 50%;
-    background:#f5cb5c;
+    background:#bff23d;
     margin-top: 3em;
     border-radius: 15px;
 }.DivCarac{
-  display: inline-flex;
-  margin-top:  10px;
-  background:  #f5cb5c;
+  /* display:grid;
+  background:  #bff23d;
+  opacity: 50%;
   color:  #000000;
   border-radius:40px ;
-  transition: ease-in-out (1500ms);
-}.DivCarac:hover{
-  -webkit-box-shadow: 0px 0px 0px 5px #A0A0A0, inset 0px 10px 27px -8px #141414, inset 0px -10px 27px -8px #333533, -50px -37px 0px -2px rgba(245,203,92,0); 
-box-shadow: 0px 0px 0px 5px #f5cb5c, inset 0px 10px 27px -8px #141414, inset 0px -10px 27px -8px #333533, -50px -37px 0px -2px rgba(245,203,92,0);
- transform: scale(1.1);
+  position: absolute;
+  width: 15%;
+  text-align: center; */
+}.ShowPrice{
+ display: flex;
+ justify-content: center;
+ background-color: #bff23d;
+ border-radius: 45px;
+ height: 75%;
+ color: #000000;
+ font-weight: 900;
+}.HoverTest{
+  background-color: red;
+  border-radius: 15px;
+  transform: translateX(45px);
+  transition: ease-in-out 1500ms;
+  background-color: #bff23d;
+position: relative;
+display: inline-block;
+border-radius: 20px;
+color: #000000;
+justify-items: center;
+width: 35%;
+height: 10% auto;
+}.DivPriceModif{
+background-color: #bff23d;
+position: relative;
+display: inline-block;
+border-radius: 20px;
+color: #000000;
+justify-items: center;
+width: 35%;
+height: 10% auto;
+ transition: ease-in-out 1500ms;
+}.Test{
+  display: inline-flex;
+  background-color:#bff23d;
+  justify-content: right;
+  border-radius: 25px;
+
 }
-  

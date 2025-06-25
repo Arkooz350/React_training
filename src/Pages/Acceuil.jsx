@@ -12,46 +12,25 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import { car } from "../Composant/Tableaux/ShowCar";
 import ComposantCitroenAccueil from "../Composant/ComposantPageAcceuil/ComposantCar/ComposantCitroenAccueil";
+import ShowPriceOpacity from "../Composant/ComposantPageAcceuil/ComposantCar/ShowPriceOpacity";
 
-const Acceuil = ({ show }) => {
-  const [look, setlook] = useState()
-  const handleMouse = (e , carChosse) => {
-    setlook(carChosse)
-    console.log(e)
-  };
-  function DisplayCar(op) {
-    return car.map((el) => (
-      <div key={el.id} className={"Div" + el.alt}>
-        <img
-          onMouseEnter={(e) => handleMouse(e.target.alt , el.carac)}
-          className= {"img" + el.alt}
-          src={el.src}
-          alt={el.alt}
-          style={{
-            width: "500px",
-            height: "400px",
-            borderRadius: "50px",
-            objectFit: "cover",
-          }}
-        ></img>
-         {look && <ComposantCitroenAccueil move={handleMouse} text={el.carac} />}                
-      </div>
-    ));
-  }
-
+const Acceuil = () => {
+  const [click, setclick] = useState()
   return (
-    <div className="divAcceuil" style={{ justifyItems: "center" }}>
+    <div className="divAcceuil" style={{ display:"inline-block" , justifyItems: "center" }}>
       <Nav />
 
       <div
         className="middletextAc"
         style={{
-          display: "block",
+          display: "inline-block",
           justifyContent: "center",
           textAlign: "center",
           marginBottom: "10em",
         }}
       >
+        <div className="Test">
+        </div>
         <h1>Bienvenue sur votre solution de mobilité groupe !</h1>
         <p>
           Nous révolutionnons la location de véhicules spacieux en proposant des
@@ -60,7 +39,17 @@ const Acceuil = ({ show }) => {
           sortie d'entreprise ou un événement sportif,<br></br> nous avons la
           solution idéale pour vous.{" "}
         </p>
-        <div className="allimage">{DisplayCar()}</div>
+        <div className="allimage">
+          {/* {DisplayCar()} */}
+          {car.map((vehicle) => {
+            return (
+              <ComposantCitroenAccueil
+              key={vehicle.id}
+                    vehicle={vehicle}
+                  />
+            );
+          })}
+        </div>
         <div className="BlockForm">
           <div className="InputGo" style={{ margin: "10% auto" }}>
             <TextField

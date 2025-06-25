@@ -1,0 +1,19 @@
+.FirstBlockDiv {
+  background-color: #242423;
+  position: relative;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+
+
+}.FormularForLogin{
+    margin-left: 10%;
+    display: inline-block;
+    position: relative;
+    background-color: #bff23d;
+    border-radius: 15px;
+    color: #242423;
+    justify-content: right;
+    padding: 10em;
+    margin: 10%;
+}

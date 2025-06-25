@@ -1,26 +1,37 @@
 import React, { createElement } from "react";
 import Acceuil from "../../../Pages/Acceuil";
 import { car } from "../../Tableaux/ShowCar";
-import { useState } from "react";
+import { useState  , memo } from "react";
+import ShowPriceOpacity from "./ShowPriceOpacity";
 
-const ComposantCitroenAccueil = ({ text, move,  }) => {
-  const [divText, setdivText] = useState(false);
-  const divStyle = {
-    transform: "translateX(45px)",
-    background: "red",
-  };
-  console.log(move);
-  console.log(text);
-  const textShow = car.map((el) => el.carac);
-  console.log(textShow);
-  for (let index = 0; index < textShow.length; index++) {
-    const element = textShow[index];
-  }
-  return (
-    <div className="DivCarac">
-      <h3>{textShow}</h3>
-    </div>
-  );
-};
 
-export default ComposantCitroenAccueil;
+export default function ComposantCitroenAccueil({ vehicle , SendDataToShowPrice }) {
+    const [look, setLook] = useState(false);
+    const repsonse = <label style={{ justifyContent:"center"}}>Bonjour ceci est un test</label>
+    console.log(repsonse)
+    return (
+        <div key={vehicle.id}   className={"Div" + vehicle.alt}>
+            <img
+                onMouseEnter={() => setLook(true)}
+                onMouseLeave={() => setLook(false)}
+                className={"img" + vehicle.alt}
+                src={vehicle.src}
+                alt={vehicle.alt}
+                style={{
+                    width: "500px",
+                    height: "400px",
+                    borderRadius: "50px",
+                }}
+            >
+           </img>
+            {look && (
+                <div className="DivCarac">
+                    <h3>{vehicle.carac}</h3>
+                </div>
+            )}
+            <ShowPriceOpacity sendDataAll={vehicle}/>
+          
+          
+        </div>
+    );
+}

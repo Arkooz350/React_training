@@ -12,6 +12,7 @@ export const car = [
 Capacité : 8 ou 9 places selon la configuration
 Portes coulissantes latérales
 Sièges modulables et amovibles `,
+    price: " 💸 150€ / Jour  ",
   },
   {
     src: toyota,
@@ -21,6 +22,7 @@ Sièges modulables et amovibles `,
 Configurations : 7, 8 ou 9 places
 Motorisations diesel et électrique
 Basé sur la plateforme partagée avec Peugeot Traveller/Citroën SpaceTourer`,
+    price: " 💸 175€ / Jour  ",
   },
   {
     src: citroen,
@@ -29,5 +31,6 @@ Basé sur la plateforme partagée avec Peugeot Traveller/Citroën SpaceTourer`,
     carac: `Versions : XS (4,60 m), M (4,95 m), XL (5,30 m)
 Configurations : 7, 8 ou 9 places
 Basé sur la même plateforme que le Peugeot Traveller et Toyota Proace Verso`,
+    price: " 💸 125€ / Jour  ",
   },
 ];
