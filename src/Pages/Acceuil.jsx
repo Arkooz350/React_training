@@ -40,7 +40,6 @@ const Acceuil = () => {
           solution idéale pour vous.{" "}
         </p>
         <div className="allimage">
-          {/* {DisplayCar()} */}
           {car.map((vehicle) => {
             return (
               <ComposantCitroenAccueil

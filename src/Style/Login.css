@@ -1,11 +1,15 @@
+
 .FirstBlockDiv {
-  background-color: #242423;
+   background: #242423;
+  border-radius: 25px;
+  display: inline-flex;
   position: relative;
-  border-radius: 15px;
-  display: flex;
-  justify-content: center;
-
-
+  height: 75%;
+  z-index: 1;
+  width: 45%;
+  height: 75%;
+  margin-left: 25%;
+  margin-top: 10em;
 }.FormularForLogin{
     margin-left: 10%;
     display: inline-block;
@@ -14,6 +18,15 @@
     border-radius: 15px;
     color: #242423;
     justify-content: right;
-    padding: 10em;
-    margin: 10%;
+    padding: 15px
+}.NoCorrectEmail{
+  background-color: red;
+}.CheckEmailDiv{
+  background-color: goldenrod;        
+}.ClassShowResponse{
+  background: grey;
+  text-align:center ;
+  border-radius: 15px;
+  display:grid
+
 }

@@ -7,8 +7,6 @@ import ShowPriceOpacity from "./ShowPriceOpacity";
 
 export default function ComposantCitroenAccueil({ vehicle , SendDataToShowPrice }) {
     const [look, setLook] = useState(false);
-    const repsonse = <label style={{ justifyContent:"center"}}>Bonjour ceci est un test</label>
-    console.log(repsonse)
     return (
         <div key={vehicle.id}   className={"Div" + vehicle.alt}>
             <img
