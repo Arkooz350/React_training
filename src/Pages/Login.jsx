@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Nav from "../Composant/Nav";
 import "../Style/Login.css";
 import Button from "@mui/material/Button";
@@ -12,7 +12,7 @@ function LoginComposant() {
   const [action, setaction] = useState(false);
   const [save, setsave] = useState({});
   const [error, setErrors] = useState({});
-  const [errorpassWord, setErrorspassWord] = useState({});
+  const [errorpassWord, setErrorspassWord] = useState();
   const emailtrack = (vl) => {
     const regex =
       /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -36,7 +36,9 @@ function LoginComposant() {
         <h2>Se connecter</h2>
         <div className="FormularForLogin">
           <label htmlFor="inputMail" /> Adresse-mail :
-          <form action={(e) => setaction(true)(console.log(e))}>
+          <form action={(e) => setaction(true)(
+            
+          )}>
             <input
               required
               value={inputs.email}
@@ -73,14 +75,18 @@ function LoginComposant() {
               }
               onBlur={(e) => {
                 if (e.target.value && !passwordCheck(e.target.value)) {
-                  setErrorspassWord((el) => ({
-                    ...el,
-                    passwordNumber: "Entrer un mot de passe avec 8 chiffres",
-                  }) ,e.target.value.trim());
+                  setErrorspassWord(
+                    (el) => ({
+                      ...el,
+                      passwordNumber: "Entrer un mot de passe avec 8 chiffres",
+                    }),
+                    e.target.value.trim(inputs.passwordNumber)
+                  );
                 } else {
                   setErrorspassWord((el) => ({
                     ...el,
                     passwordNumber: "mot de passe valide",
+                  
                   }));
                 }
               }}
