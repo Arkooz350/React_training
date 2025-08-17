@@ -13,6 +13,7 @@ function LoginComposant() {
   const [save, setsave] = useState({});
   const [error, setErrors] = useState({});
   const [errorpassWord, setErrorspassWord] = useState();
+  const [number, setnumber] = useState();
   const emailtrack = (vl) => {
     const regex =
       /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -22,6 +23,7 @@ function LoginComposant() {
     const passwordregex = /^[0-9]*$/;
     return passwordregex.test(value);
   };
+
 
   console.log(inputs.passwordNumber);
   console.log(errorpassWord);
@@ -34,11 +36,10 @@ function LoginComposant() {
 
       <div className="FirstBlockDiv">
         <h2>Se connecter</h2>
+
         <div className="FormularForLogin">
           <label htmlFor="inputMail" /> Adresse-mail :
-          <form action={(e) => setaction(true)(
-            
-          )}>
+          <form action={(e) => setaction(true)()}>
             <input
               required
               value={inputs.email}
@@ -78,7 +79,7 @@ function LoginComposant() {
                   setErrorspassWord(
                     (el) => ({
                       ...el,
-                      passwordNumber: "Entrer un mot de passe avec 8 chiffres",
+                      passwordNumber: "Entrer un mot de passe avec 8 chiffres ",
                     }),
                     e.target.value.trim(inputs.passwordNumber)
                   );
@@ -86,7 +87,6 @@ function LoginComposant() {
                   setErrorspassWord((el) => ({
                     ...el,
                     passwordNumber: "mot de passe valide",
-                  
                   }));
                 }
               }}
@@ -104,6 +104,9 @@ function LoginComposant() {
           <br />
           <link href="#" />
           Mot de passe Oublier ?
+          <br />
+          <link href="#" />
+          S'inscrire
         </div>
       </div>
     </>

@@ -14,10 +14,14 @@ import { car } from "../Composant/Tableaux/ShowCar";
 import ComposantCitroenAccueil from "../Composant/ComposantPageAcceuil/ComposantCar/ComposantCitroenAccueil";
 import ShowPriceOpacity from "../Composant/ComposantPageAcceuil/ComposantCar/ShowPriceOpacity";
 
+
 const Acceuil = () => {
-  const [click, setclick] = useState()
+  const [click, setclick] = useState();
   return (
-    <div className="divAcceuil" style={{ display:"inline-block" , justifyItems: "center" }}>
+    <div
+      className="divAcceuil"
+      style={{ display: "inline-block", justifyItems: "center" }}
+    >
       <Nav />
 
       <div
@@ -29,8 +33,7 @@ const Acceuil = () => {
           marginBottom: "10em",
         }}
       >
-        <div className="Test">
-        </div>
+        <div className="Test"></div>
         <h1>Bienvenue sur votre solution de mobilité groupe !</h1>
         <p>
           Nous révolutionnons la location de véhicules spacieux en proposant des
@@ -42,10 +45,7 @@ const Acceuil = () => {
         <div className="allimage">
           {car.map((vehicle) => {
             return (
-              <ComposantCitroenAccueil
-              key={vehicle.id}
-                    vehicle={vehicle}
-                  />
+              <ComposantCitroenAccueil key={vehicle.id} vehicle={vehicle} />
             );
           })}
         </div>

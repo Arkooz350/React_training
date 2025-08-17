@@ -5,7 +5,7 @@ import { useState  , memo } from "react";
 import ShowPriceOpacity from "./ShowPriceOpacity";
 
 
-export default function ComposantCitroenAccueil({ vehicle , SendDataToShowPrice }) {
+export default function ComposantCitroenAccueil({ vehicle }) {
     const [look, setLook] = useState(false);
     return (
         <div key={vehicle.id}   className={"Div" + vehicle.alt}>
