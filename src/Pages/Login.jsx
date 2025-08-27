@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import Nav from "../Composant/Nav";
 import "../Style/Login.css";
 import Button from "@mui/material/Button";
+import {NavLink } from "react-router";
+import Register from "./Register";
 
 function LoginComposant() {
   const [inputs, setInputs] = useState({
@@ -39,7 +41,7 @@ function LoginComposant() {
 
         <div className="FormularForLogin">
           <label htmlFor="inputMail" /> Adresse-mail :
-          <form action={(e) => setaction(true)()}>
+          <form onSubmit={(e)=> e.preventDefault()}>
             <input
               required
               value={inputs.email}
@@ -105,8 +107,9 @@ function LoginComposant() {
           <link href="#" />
           Mot de passe Oublier ?
           <br />
-          <link href="#" />
-          S'inscrire
+       <NavLink to="/register">
+        S'inscrire
+       </NavLink>
         </div>
       </div>
     </>

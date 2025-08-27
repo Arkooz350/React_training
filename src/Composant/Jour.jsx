@@ -8,6 +8,9 @@ const Jour = () => {
     // console.log(event.target.value);
     const saveNumber = event.target.value;
     console.log(saveNumber)
+    function EnvoieNumber(saveNumber) {
+      
+    }
   };
   return (
     <div>

@@ -31,6 +31,7 @@ Les plages méditerranéennes du sud de la France nécessitent un voyage plus lo
 Pour une escapade plus proche, les bases de loisirs franciliennes comme celle de Cergy-Pontoise ou Jablines-Annet proposent des plages artificielles avec baignade surveillée, parfaites pour une journée rafraîchissante sans quitter la région parisienne.
 Chaque destination offre son charme particulier, des plages chic normandes aux criques sauvages méditerranéennes, permettant aux Parisiens de choisir selon leurs envies d'évasion.`,
     image: imagePlage,
+    alt: "Plage",
   },
   {
     name: "Nice",
@@ -40,6 +41,7 @@ Le Vieux-Nice charme par ses ruelles colorées, ses marchés provençaux parfum�
 Les musées niçois rivalisent d'excellence : le musée Matisse dans les arènes de Cimiez, le musée d'Art moderne et d'Art contemporain, ou encore le musée Chagall témoignent de la richesse culturelle de la ville. La colline du château offre un panorama exceptionnel sur la baie et les toits de tuiles rouges.
 Nice constitue également une base idéale pour explorer la Riviera : Monaco et Monte-Carlo, Cannes et son festival, les villages perchés de l'arrière-pays comme Èze ou Saint-Paul-de-Vence sont à portée d'excursion. La gastronomie locale, entre pissaladière, socca et petits farcis, complète parfaitement cette expérience azuréenne authentique.`,
     image: imageNice,
+    alt: "Nice",
   },
   {
     name: "Rennes",
@@ -49,5 +51,6 @@ La scène culturelle rennaise rayonne bien au-delà des frontières régionales.
 L'art de vivre breton s'exprime pleinement à Rennes : marchés colorés des Lices le samedi matin, crêperies authentiques, bars à ambiance festive et restaurants gastronomiques célébrant les produits locaux. La proximité de la côte bretonne permet des escapades vers Saint-Malo, le Mont-Saint-Michel ou la presqu'île de Quiberon.
 Rennes combine parfaitement authenticité bretonne et modernité urbaine, offrant aux visiteurs une expérience riche entre patrimoine, culture et traditions, dans une atmosphère chaleureuse typiquement bretonne où la convivialité est reine.`,
     image: imageRennes,
+    alt: "Rennes",
   },
 ];
