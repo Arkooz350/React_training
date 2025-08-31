@@ -1,0 +1,52 @@
+
+#description{
+    color:black;
+    margin: 0;
+    display: block;
+    height: 10rem;
+    background-color: #bff23d ;
+    text-align: center;
+    border-radius: 40px;
+}#SecondTitle{
+    text-align: center;
+    /* background-color: aqua; */
+    display: block;
+
+}.TextPart1{
+  display:flex;
+  gap: 15em;
+  justify-content: center;
+}
+.SectionPageSearch1{
+   display: inline-flex;
+  position: relative;
+  width: 500px;
+  height: 560px;
+  background-color: #242423;
+  gap: 10em;
+  margin: 15px;
+  border-radius: 45px;
+  /* top: 145px ; */
+  text-align: center;
+  line-height: 2em;
+  justify-content: center;
+  z-index: 0;
+   transition: ease-out;
+}.SectionPageSearch1  :hover{
+ transform:translateY(15px)  ;
+ background-color: #bff23d;
+ z-index: -1;
+ border-radius: 45px;
+ color: #242423;
+}
+.SectionPageSearch2{
+   display:block;
+   justify-content: center;
+  position: relative;
+  width: 500px;
+  height: 560px;
+  background-color: #242423;
+  gap: 10em ;
+  margin: 15px;
+  border-radius: 45px;
+}

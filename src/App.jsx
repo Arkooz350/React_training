@@ -2,11 +2,12 @@ import "./main";
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Acceuil from "./Pages/Acceuil";
-import Decouverte from "./Pages/Decouverte";
+import Search   from "./Pages/Search";
 import "./Style/Acceuil.css";
 import Ville_a_decouvrire from "./Pages/Ville_a_decouvrire";
 import LoginComposant from "./Pages/Login";
 import Register from "./Pages/Register.jsx";
+import Dashbord from "./Pages/Dashbord";
 
 const App = () => {
   return (
@@ -17,10 +18,11 @@ const App = () => {
           element={<Ville_a_decouvrire />}
         ></Route>
         <Route path="/" element={<Acceuil />} />
-        <Route path="/Decouverte" element={<Decouverte />} />
+        <Route path="/search" element={<Search />} />
         <Route path="/*" element="404" />
         <Route path="/login" element={<LoginComposant />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/Dashbord" element={<Dashbord />} />
       </Routes>
     </BrowserRouter>
   );

@@ -2,17 +2,23 @@ import React, { useEffect, useState } from "react";
 import Nav from "../Composant/Nav";
 import "../Style/Login.css";
 import Button from "@mui/material/Button";
-import {NavLink } from "react-router";
+import { NavLink, useNavigate } from "react-router-dom";
 import Register from "./Register";
+import axios from "axios";
+import Dashbord from "./Dashbord";
 
-function LoginComposant() {
+function LoginComposant({isLoggedIn}) {
   const [inputs, setInputs] = useState({
     email: "",
     passwordNumber: "",
   });
   const handleChange = (e) => {};
   const [action, setaction] = useState(false);
-  const [save, setsave] = useState({});
+  const [saveres, setsaveres] = useState({
+    dataRecieve : ""
+
+  });
+   const naviagte = useNavigate()
   const [error, setErrors] = useState({});
   const [errorpassWord, setErrorspassWord] = useState();
   const [number, setnumber] = useState();
@@ -25,11 +31,30 @@ function LoginComposant() {
     const passwordregex = /^[0-9]*$/;
     return passwordregex.test(value);
   };
-
+  const handleConnection =   async (e) => {
+    e.preventDefault();
+    const response = await axios
+      .post(
+        "http://localhost:3306/login",
+        {
+          mail: inputs.email,
+          pass: inputs.passwordNumber,
+        },
+      )
+      .then(res => setsaveres({...saveres , dataRecieve : res.data , isLoggedIn : res.data }))
+      .then((err) => console.error(err));
+    }
+  useEffect(() =>{
+    if (saveres.dataRecieve.code >= 1 ) {
+  naviagte("/Dashbord",saveres.dataRecieve.resultat.id)
+  }else{
+console.log("password or email incorrect , please check this ! ")
+  }
+  },[handleConnection, naviagte])
 
   console.log(inputs.passwordNumber);
-  console.log(errorpassWord);
-
+  console.log(inputs.email);
+console.log(isLoggedIn)
   return (
     <>
       <div style={{ justifyItems: "center" }}>
@@ -41,7 +66,7 @@ function LoginComposant() {
 
         <div className="FormularForLogin">
           <label htmlFor="inputMail" /> Adresse-mail :
-          <form onSubmit={(e)=> e.preventDefault()}>
+          <form onSubmit={(e) => e.preventDefault()}>
             <input
               required
               value={inputs.email}
@@ -66,7 +91,7 @@ function LoginComposant() {
             <label htmlFor="inputPassWord" /> Mot de passe :
             <input
               id="inputPassWord"
-              type="text"
+              type="password"
               placeholder="Entrer votre mot de passe "
               onChange={(e) =>
                 handleChange(
@@ -95,6 +120,7 @@ function LoginComposant() {
             />
             <br></br>
             <Button
+              onClick={handleConnection}
               type="submit"
               style={{ backgroundColor: "GrayText", justifyItems: "center" }}
             >
@@ -107,9 +133,7 @@ function LoginComposant() {
           <link href="#" />
           Mot de passe Oublier ?
           <br />
-       <NavLink to="/register">
-        S'inscrire
-       </NavLink>
+          <NavLink to="/register">S'inscrire</NavLink>
         </div>
       </div>
     </>

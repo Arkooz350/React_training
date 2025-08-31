@@ -1,6 +1,6 @@
 import "../Style/register.css";
 import Nav from "../Composant/Nav";
-import { Button, TextField } from "@mui/material";
+import { Alert, AlertTitle, Button, TextField } from "@mui/material";
 import { useEffect, useRef, useState } from "react";
 import { CheckBox, CheckBoxOutlineBlank } from "@mui/icons-material";
 import axios from "axios";
@@ -15,7 +15,8 @@ function Register() {
     pass: "",
     checkpass: "",
     username: "",
-  })
+    dataS1 : ""
+  });
   const [input, setinput] = useState({
     email: "",
     password: "",
@@ -26,26 +27,19 @@ function Register() {
       /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return regex.test(vl);
   };
-  const navigate = useNavigate;
-  function twosamepass(e) {
-    if (value.pass === value.pass) {
-      console.log("ok");
-    }
-    return "non";
-  }
+  const navigate = useNavigate("/login");
+  
   const handleChange = (e) => {
     setvalue({ ...value, [e.target.name]: e.target.value });
+      if(!value.mail && !value.pass && !value.username){
+       console.log("Veulliez remplier les champs obligqtoire ")
+  };
   };
   const handleOnBlur = (e) => {
-    if (value.checkpass === value.pass || null) {
-      console.log("oui");
-    } else console.log("non");
-    if (!emailChecker(e.target.value) && e.target.value) {
-      setErrors((put) => ({ ...put, email: "Merci de saisir un mail valide" }));
-    }
-    return;
+    {value.pass && value.checkpass === value.pass  ?  "" : console.log("  Le mot de passe rensigner n'ai indentique !")} 
+    return e ;
   };
-  console.log(value)
+  console.log(value);
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -64,13 +58,13 @@ function Register() {
         }
       );
       console.log("Reponse serveur : ", response.data);
+      navigate("/login")
+      setvalue((prev) => ({...prev , dataS1 : response.data}))
     } catch (error) {
       console.error("Erreur axios : ", error);
     }
-  };
-
-
-
+  
+  }
   return (
     <>
       <div style={{ justifyItems: "center" }}>
@@ -78,17 +72,28 @@ function Register() {
       </div>
       <div className="allDivsigin">
         <div className="mainDivSigin">
-          <form action="" onSubmit={handleSubmit}>
+          <form  action="" method="post" onSubmit={handleSubmit} className="senddata">
             <h2>S'inscrire</h2>
             <div className="TableInfos">
-              <TextField label="username" name="username" value={value.username} onChange={handleChange}></TextField>
-              <TextField label="name" name="nom" value={value.nom} onChange={handleChange}></TextField>
+              <TextField
+                label="username"
+                name="username"
+                value={value.username}
+                onChange={handleChange}
+              ></TextField>
+              <TextField
+                label="name"
+                name="nom"
+                value={value.nom}
+                onChange={handleChange}
+              ></TextField>
               <TextField
                 onChange={handleChange}
                 label="email"
                 color="black"
                 value={value.mail}
                 name="mail"
+                type="email"
               ></TextField>
               <TextField
                 onChange={handleChange}
@@ -104,23 +109,24 @@ function Register() {
                 type="password"
                 label="confirm password"
                 color="black"
-              
+                onChange={handleChange}
+                name="checkpass"
+                value={value.checkpass}
+                onBlur={handleOnBlur}
               ></TextField>
               <input
                 type="checkbox"
                 value={checkbox}
-                onBlur={handleOnBlur}
               ></input>
-              {value.checkpass ? (
-                <p>Merci de saisir le meme mot de passe</p>
-              ) : (
-                ""
-              )}
               {input.email && <p>Merci de rentrer un mail valide !! </p>}
               J'accepte les conditions génerale de la plateforme
-              <Button onClick={handleSubmit}>Valider</Button>
+              <Button className="senddata" type="submit">
+                Valider
+              </Button>
             </div>
+
           </form>
+          {value.dataS1 && <Alert severity="success">Bienvenue dans la team  ! </Alert> }
         </div>
       </div>
     </>

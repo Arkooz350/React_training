@@ -18,10 +18,10 @@ const Nav = () => {
       </ul>
       <ul>
       <NavLink
-        to="/Decouverte"
+        to="/search"
       >
       <SearchIcon color="primary" fontSize="large"/>
-      
+    
       </NavLink>
       </ul>
       <ul>
