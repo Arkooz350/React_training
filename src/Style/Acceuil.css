@@ -1,3 +1,8 @@
+/* @import "tailwindcss";
+@import "tw-animate-css"; */
+
+/* @custom-variant dark (&:is(.dark *)); */
+
 html {
   background: #333533;
   font-family: "Montserrat", sans-serif;
@@ -70,8 +75,8 @@ box-shadow: 0px 0px 0px 5px #f5f5dc, inset 0px 10px 27px -8px #141414, inset 0px
     background:#bff23d;
     margin-top: 3em;
     border-radius: 15px;
-}.DivCarac{
-  /* display:grid;
+/* }.DivCarac{
+  z-index: 1;
   background:  #bff23d;
   opacity: 50%;
   color:  #000000;
@@ -79,7 +84,8 @@ box-shadow: 0px 0px 0px 5px #f5f5dc, inset 0px 10px 27px -8px #141414, inset 0px
   position: absolute;
   width: 15%;
   text-align: center; */
-}.ShowPrice{
+
+}.ShowPrice{ 
  display: flex;
  justify-content: center;
  background-color: #bff23d;

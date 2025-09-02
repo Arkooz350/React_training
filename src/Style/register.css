@@ -30,7 +30,7 @@
   display:grid
 
 }.mainDivSigin{
-    display: inline-block;
+    display: inline-flex;
     justify-items: center;
 justify-content: center;
 }.TableInfos{
@@ -39,8 +39,11 @@ justify-content: center;
     background-color: #bff23d;
     border-radius: 2em;
 }.allDivsigin{
-    background-color: black;
-    display: inline-flex;
+    background-color:#242423;
     border-radius: 2em;
-
+    justify-content: center;
+    display: inline-flex;
+    margin-left: 41%;
+    padding: 0;
+    margin-top: 5%;
 }

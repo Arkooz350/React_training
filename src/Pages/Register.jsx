@@ -1,70 +1,76 @@
 import "../Style/register.css";
 import Nav from "../Composant/Nav";
 import { Alert, AlertTitle, Button, TextField } from "@mui/material";
-import { useEffect, useRef, useState } from "react";
-import { CheckBox, CheckBoxOutlineBlank } from "@mui/icons-material";
-import axios from "axios";
+import { useEffect, useReducer, useRef, useState } from "react";
 import { data, useNavigate } from "react-router";
+import ReducerRegister from "@/Composant/Tableaux/ReducerRegister";
+import axios from "axios";
 
 function Register() {
-  const [checkbox, setcheckbox] = useState(false);
-  const [value, setvalue] = useState({
-    id: "",
-    nom: "",
-    mail: "",
-    pass: "",
-    checkpass: "",
-    username: "",
-    dataS1 : ""
+  const [taskState, dispatchAction] = useReducer(ReducerRegister, {
+    userdata: {},
+    dataServeur: {},
+    isLoading: false,
   });
-  const [input, setinput] = useState({
-    email: "",
-    password: "",
-  });
-  const [Errors, setErrors] = useState({});
-  const emailChecker = (vl) => {
-    const regex =
-      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return regex.test(vl);
-  };
-  const navigate = useNavigate("/login");
-  
+  const [data, setData] = useState({});
   const handleChange = (e) => {
-    setvalue({ ...value, [e.target.name]: e.target.value });
-      if(!value.mail && !value.pass && !value.username){
-       console.log("Veulliez remplier les champs obligqtoire ")
+    setData({ ...data, [e.target.name]: e.target.value });
+    dispatchAction({
+      type: "userdata",
+      playload: {
+        userdata: {
+          dataClients: {
+            username: data.username,
+            nom: data.nom,
+            mail: data.mail,
+            pass: data.pass,
+            passCheck : data.passCheck
+          },
+        },
+      },
+    });
   };
-  };
-  const handleOnBlur = (e) => {
-    {value.pass && value.checkpass === value.pass  ?  "" : console.log("  Le mot de passe rensigner n'ai indentique !")} 
-    return e ;
-  };
-  console.log(value);
-  const handleSubmit = async (e) => {
+  const navigate = useNavigate();
+  async function handleSubmit(e) {
     e.preventDefault();
     try {
-      const response = await axios.post(
-        "http://localhost:3306/custumers",
-        {
-          nom: value.nom || null,
-          mail: value.mail,
-          pass: value.pass,
-          username: value.username,
-        },
-        {
-          headers: {
-            "Content-Type": "application/json",
+      const response = await axios
+        .post(
+          "http://localhost:3306/custumers",
+          {
+            nom: taskState.userdata.dataClients.nom,
+            mail: taskState.userdata.dataClients.mail,
+            pass: taskState.userdata.dataClients.pass,
+            username: taskState.userdata.dataClients.username,
           },
-        }
-      );
-      console.log("Reponse serveur : ", response.data);
-      navigate("/login")
-      setvalue((prev) => ({...prev , dataS1 : response.data}))
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        )
+        .then((res) =>
+          dispatchAction({
+            type: "setResponseOFerver",
+            playload: {
+              dataServeur: res.data,
+            },
+          })
+        );
+        setTimeout(() => {
+        navigate("/login" , <div className="AlertPopup">
+          <Alert severity="info">This is an info Alert.</Alert>
+        </div>);
+      }, 2500);
     } catch (error) {
-      console.error("Erreur axios : ", error);
+      console.error(error);
+      {error && <p>Merci de renseigner les champs</p>}
+    } finally {
+      console.log("Chargement . . .");
     }
-  
   }
+  console.log(taskState)
+
   return (
     <>
       <div style={{ justifyItems: "center" }}>
@@ -72,28 +78,31 @@ function Register() {
       </div>
       <div className="allDivsigin">
         <div className="mainDivSigin">
-          <form  action="" method="post" onSubmit={handleSubmit} className="senddata">
+          <form method="post" onSubmit={handleSubmit} className="senddata">
             <h2>S'inscrire</h2>
             <div className="TableInfos">
               <TextField
                 label="username"
                 name="username"
-                value={value.username}
+                value={taskState.username}
                 onChange={handleChange}
+                required={true}
               ></TextField>
               <TextField
                 label="name"
                 name="nom"
-                value={value.nom}
+                value={taskState.nom}
                 onChange={handleChange}
+                required={true}
               ></TextField>
               <TextField
                 onChange={handleChange}
                 label="email"
                 color="black"
-                value={value.mail}
+                value={taskState.mail}
                 name="mail"
                 type="email"
+                required={true}
               ></TextField>
               <TextField
                 onChange={handleChange}
@@ -102,35 +111,34 @@ function Register() {
                 label="new password"
                 color="black"
                 name="pass"
-                value={value.pass}
+                required={true}
+                value={taskState.pass}
               ></TextField>
               <TextField
-                id="pass2 "
+                id="pass2"
                 type="password"
                 label="confirm password"
                 color="black"
                 onChange={handleChange}
-                name="checkpass"
-                value={value.checkpass}
-                onBlur={handleOnBlur}
+                name="passCheck"
+                value={taskState.passCheck}
               ></TextField>
-              <input
-                type="checkbox"
-                value={checkbox}
-              ></input>
-              {input.email && <p>Merci de rentrer un mail valide !! </p>}
+              <input type="checkbox" value={true}></input>
+              {taskState.userdata.mail && (
+                <p>Merci de rentrer un mail valide !! </p>
+              )}
               J'accepte les conditions génerale de la plateforme
-              <Button className="senddata" type="submit">
+              <Button className="senddata" type="submit" disabled={false}>
                 Valider
               </Button>
             </div>
-
           </form>
-          {value.dataS1 && <Alert severity="success">Bienvenue dans la team  ! </Alert> }
+          {/* {value.dataS1 && (
+            <Alert severity="success">Bienvenue dans la team ! </Alert> */}
+          {/* )} */}
         </div>
       </div>
     </>
   );
 }
-
 export default Register;

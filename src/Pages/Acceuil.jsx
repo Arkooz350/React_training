@@ -5,7 +5,6 @@ import Citroen from "../assets/citroen.jpeg";
 import Toyota from "../assets/Toyota.jpg";
 import LoadingButtonGroup from "../Composant/Select";
 import Jour from "../Composant/Jour";
-import SousBlock from "../Composant/SousBlock";
 import Select from "@mui/material/Select";
 import { useState } from "react";
 import TextField from "@mui/material/TextField";
@@ -78,7 +77,6 @@ const Acceuil = () => {
 
       <div className="allblock1" style={{ display: "flex", gap: "20em" }}>
         <div className="block1info">
-          <SousBlock />
         </div>
         <div className="block2conso"></div>
       </div>

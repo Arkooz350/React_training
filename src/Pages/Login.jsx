@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useReducer, useState } from "react";
 import Nav from "../Composant/Nav";
 import "../Style/Login.css";
 import Button from "@mui/material/Button";
@@ -6,55 +6,63 @@ import { NavLink, useNavigate } from "react-router-dom";
 import Register from "./Register";
 import axios from "axios";
 import Dashbord from "./Dashbord";
-
-function LoginComposant({isLoggedIn}) {
-  const [inputs, setInputs] = useState({
-    email: "",
-    passwordNumber: "",
+import TaskReducer from "@/Composant/Tableaux/TasksReducer";
+function LoginComposant() {
+  const [tasksState, dispatch] = useReducer(TaskReducer, {
+    inputemail: {},
+    inputpass: {},
+    action: false,
+    saveresponse: {},
+    error: {},
+    errorpassWord: "",
   });
-  const handleChange = (e) => {};
-  const [action, setaction] = useState(false);
-  const [saveres, setsaveres] = useState({
-    dataRecieve : ""
 
-  });
-   const naviagte = useNavigate()
-  const [error, setErrors] = useState({});
-  const [errorpassWord, setErrorspassWord] = useState();
-  const [number, setnumber] = useState();
-  const emailtrack = (vl) => {
-    const regex =
-      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return regex.test(vl);
-  };
-  const passwordCheck = (value) => {
-    const passwordregex = /^[0-9]*$/;
-    return passwordregex.test(value);
-  };
-  const handleConnection =   async (e) => {
+  const handleConnection = async (e) => {
     e.preventDefault();
     const response = await axios
-      .post(
-        "http://localhost:3306/login",
-        {
-          mail: inputs.email,
-          pass: inputs.passwordNumber,
-        },
+      .post("http://localhost:3306/login", {
+        mail: tasksState.inputemail.email,
+        pass: tasksState.inputpass.pass,
+      })
+      .then((res) =>
+        dispatch({
+          type: "saveres",
+          playload: {
+            saveresponse: res.data,
+          },
+        })
       )
-      .then(res => setsaveres({...saveres , dataRecieve : res.data , isLoggedIn : res.data }))
       .then((err) => console.error(err));
+  };
+  const dataSaveremail = (event) => {
+    dispatch({
+      type: "Setemail",
+      playload: {
+        inputemail: {
+          email: event.target.value.trim(),
+        },
+      },
+    });
+  };
+  const dataSaverpass = (e) => {
+    dispatch({
+      type: "Setpass",
+      playload: {
+        inputpass: {
+          pass: e.target.value.trim(),
+        },
+      },
+    });
+  };
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (tasksState.saveresponse.code >= 1) {
+      navigate("/Dashbord");
+    } else {
+      console.log("password or email incorrect , please check this ! ");
     }
-  useEffect(() =>{
-    if (saveres.dataRecieve.code >= 1 ) {
-  naviagte("/Dashbord",saveres.dataRecieve.resultat.id)
-  }else{
-console.log("password or email incorrect , please check this ! ")
-  }
-  },[handleConnection, naviagte])
+  }, [handleConnection, navigate]);
 
-  console.log(inputs.passwordNumber);
-  console.log(inputs.email);
-console.log(isLoggedIn)
   return (
     <>
       <div style={{ justifyItems: "center" }}>
@@ -69,54 +77,20 @@ console.log(isLoggedIn)
           <form onSubmit={(e) => e.preventDefault()}>
             <input
               required
-              value={inputs.email}
-              onChange={(e) =>
-                setInputs((el) => ({ ...el, email: e.target.value }))
-              }
-              onBlur={(e) => {
-                if (e.target.value && !emailtrack(e.target.value)) {
-                  setErrors((prev) => ({
-                    ...prev,
-                    email: "❌ votre email n'ai pas valide",
-                  }));
-                } else {
-                  setErrors((prev) => ({ ...prev, email: " ✅ email valide" }));
-                }
-              }}
               id="inputMail"
               type="email"
               placeholder="Entrer votre adresse-mail"
+              onChange={dataSaveremail}
+              value={tasksState.inputemail.email}
             />
-            {error.email && <p className="ClassShowResponse">{error.email}</p>}
             <label htmlFor="inputPassWord" /> Mot de passe :
             <input
+              required
               id="inputPassWord"
               type="password"
               placeholder="Entrer votre mot de passe "
-              onChange={(e) =>
-                handleChange(
-                  setInputs((prev) => ({
-                    ...prev,
-                    passwordNumber: e.target.value,
-                  }))
-                )
-              }
-              onBlur={(e) => {
-                if (e.target.value && !passwordCheck(e.target.value)) {
-                  setErrorspassWord(
-                    (el) => ({
-                      ...el,
-                      passwordNumber: "Entrer un mot de passe avec 8 chiffres ",
-                    }),
-                    e.target.value.trim(inputs.passwordNumber)
-                  );
-                } else {
-                  setErrorspassWord((el) => ({
-                    ...el,
-                    passwordNumber: "mot de passe valide",
-                  }));
-                }
-              }}
+              onChange={dataSaverpass}
+              value={tasksState.inputemail.pass}
             />
             <br></br>
             <Button
