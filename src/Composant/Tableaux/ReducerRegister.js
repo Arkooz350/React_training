@@ -14,6 +14,12 @@ function ReducerRegister(state, action) {
       isLoading: true,
     };
   }
+  if (action.type === "Checkpass") {
+    return {
+      ...state,
+      BtnSubmit: true,
+    };
+  }
 
   return state;
 }

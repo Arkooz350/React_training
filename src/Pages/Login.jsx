@@ -1,4 +1,4 @@
-import React, { useEffect, useReducer, useState } from "react";
+import React, { useEffect, useMemo, useReducer, useState } from "react";
 import Nav from "../Composant/Nav";
 import "../Style/Login.css";
 import Button from "@mui/material/Button";
@@ -7,6 +7,7 @@ import Register from "./Register";
 import axios from "axios";
 import Dashbord from "./Dashbord";
 import TaskReducer from "@/Composant/Tableaux/TasksReducer";
+
 function LoginComposant() {
   const [tasksState, dispatch] = useReducer(TaskReducer, {
     inputemail: {},
@@ -55,13 +56,22 @@ function LoginComposant() {
     });
   };
   const navigate = useNavigate();
-  useEffect(() => {
+ useEffect(()=> {
     if (tasksState.saveresponse.code >= 1) {
       navigate("/Dashbord");
-    } else {
-      console.log("password or email incorrect , please check this ! ");
+      const responseapi = axios.post("http://localhost:3306/token",{
+        user_id : tasksState.saveresponse.resultat.id,
+        token : tasksState.saveresponse.token
+    })
+    .then((res ) => console.log(res))
+    .then((err) => console.error(err))
+  
+    } else{
+        console.log("password or email incorrect , please check this ! ");
     }
-  }, [handleConnection, navigate]);
+  },[tasksState.saveresponse , ])
+
+
 
   return (
     <>

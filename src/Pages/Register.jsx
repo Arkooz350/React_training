@@ -11,6 +11,7 @@ function Register() {
     userdata: {},
     dataServeur: {},
     isLoading: false,
+    BtnSubmit: false,
   });
   const [data, setData] = useState({});
   const handleChange = (e) => {
@@ -24,7 +25,7 @@ function Register() {
             nom: data.nom,
             mail: data.mail,
             pass: data.pass,
-            passCheck : data.passCheck
+            passCheck: data.passCheck,
           },
         },
       },
@@ -57,19 +58,24 @@ function Register() {
             },
           })
         );
-        setTimeout(() => {
-        navigate("/login" , <div className="AlertPopup">
-          <Alert severity="info">This is an info Alert.</Alert>
-        </div>);
+      setTimeout(() => {
+        navigate(
+          "/login",
+          <div className="AlertPopup">
+            <Alert severity="info">This is an info Alert.</Alert>
+          </div>
+        );
       }, 2500);
     } catch (error) {
       console.error(error);
-      {error && <p>Merci de renseigner les champs</p>}
+      {
+        error && <p>Merci de renseigner les champs</p>;
+      }
     } finally {
       console.log("Chargement . . .");
     }
   }
-  console.log(taskState)
+  console.log(taskState);
 
   return (
     <>

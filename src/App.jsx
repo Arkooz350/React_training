@@ -8,7 +8,6 @@ import Ville_a_decouvrire from "./Pages/Ville_a_decouvrire";
 import LoginComposant from "./Pages/Login";
 import Register from "./Pages/Register.jsx";
 import Dashbord from "./Pages/Dashbord";
-
 const App = () => {
   return (
     <BrowserRouter>
