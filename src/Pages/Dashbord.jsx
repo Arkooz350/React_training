@@ -1,15 +1,26 @@
-import { useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import LoginComposant from "./Login";
 import DisconnectBtn from "@/Composant/ComposantDashbord/DisconnectBtn";
-import { Button } from "@/components/ui/button";
 import { Loader2Icon } from "lucide-react";
+import axios from "axios";
+import { useNavigate } from "react-router";
 
-function Dashbord() {
+function Dashbord({ message }) {
+  const navigate = useNavigate();
+  const [user, setuser] = useState(false);
+  axios.defaults.withCredentials = true
+  useEffect(() => {
+    
+      axios
+        .post("http://localhost:3306/dashbord",{
+          test : "Phase de test"
+        })
+        .then((res) => console.log(res))
+        .then((err) => console.error(err));
+  }, [user]);
+  
   return (
     <>
-      <div className="flex flex-wrap items-center gap-2 md:flex-row">
-        <Button>Button</Button>
-      </div>
       <DisconnectBtn></DisconnectBtn>
     </>
   );

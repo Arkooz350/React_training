@@ -3,7 +3,7 @@ function TaskReducer(state, action) {
     return {
       ...state,
       inputemail: {
-        email: action.playload.inputemail.email,
+        mail: action.playload.inputemail.mail,
       },
     };
   }

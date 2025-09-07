@@ -18,29 +18,14 @@ function LoginComposant() {
     errorpassWord: "",
   });
 
-  const handleConnection = async (e) => {
-    e.preventDefault();
-    const response = await axios
-      .post("http://localhost:3306/login", {
-        mail: tasksState.inputemail.email,
-        pass: tasksState.inputpass.pass,
-      })
-      .then((res) =>
-        dispatch({
-          type: "saveres",
-          playload: {
-            saveresponse: res.data,
-          },
-        })
-      )
-      .then((err) => console.error(err));
-  };
+  const navigate = useNavigate();
+
   const dataSaveremail = (event) => {
     dispatch({
       type: "Setemail",
       playload: {
         inputemail: {
-          email: event.target.value.trim(),
+          mail: event.target.value.trim(),
         },
       },
     });
@@ -55,24 +40,25 @@ function LoginComposant() {
       },
     });
   };
-  const navigate = useNavigate();
- useEffect(()=> {
-    if (tasksState.saveresponse.code >= 1) {
-      navigate("/Dashbord");
-      const responseapi = axios.post("http://localhost:3306/token",{
-        user_id : tasksState.saveresponse.resultat.id,
-        token : tasksState.saveresponse.token
-    })
-    .then((res ) => console.log(res))
-    .then((err) => console.error(err))
-  
-    } else{
-        console.log("password or email incorrect , please check this ! ");
-    }
-  },[tasksState.saveresponse , ])
+  const handleConnection = async (e) => {
+    axios.defaults.withCredentials = true;
 
-
-
+    e.preventDefault();
+    axios
+      .post("http://localhost:3306/login", {
+        mail: tasksState.inputemail.mail,
+        pass: tasksState.inputpass.pass,
+      })
+      .then((res) => {
+        if(res.data.login == true){
+          <Dashbord message={res.data.login}></Dashbord>
+          return navigate("/dashbord")
+         
+        }
+        navigate("/login")
+      })
+      .catch((err) => console.error(err));
+  };
   return (
     <>
       <div style={{ justifyItems: "center" }}>
@@ -91,7 +77,7 @@ function LoginComposant() {
               type="email"
               placeholder="Entrer votre adresse-mail"
               onChange={dataSaveremail}
-              value={tasksState.inputemail.email}
+              value={tasksState.inputemail.mail}
             />
             <label htmlFor="inputPassWord" /> Mot de passe :
             <input

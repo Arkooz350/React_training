@@ -13,7 +13,9 @@ function Register() {
     isLoading: false,
     BtnSubmit: false,
   });
+    const navigate = useNavigate();
   const [data, setData] = useState({});
+  const [userdata, setuserdata] = useState({});
   const handleChange = (e) => {
     setData({ ...data, [e.target.name]: e.target.value });
     dispatchAction({
@@ -31,33 +33,18 @@ function Register() {
       },
     });
   };
-  const navigate = useNavigate();
+
   async function handleSubmit(e) {
     e.preventDefault();
-    try {
-      const response = await axios
-        .post(
-          "http://localhost:3306/custumers",
-          {
-            nom: taskState.userdata.dataClients.nom,
-            mail: taskState.userdata.dataClients.mail,
-            pass: taskState.userdata.dataClients.pass,
-            username: taskState.userdata.dataClients.username,
-          },
-          {
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        )
-        .then((res) =>
-          dispatchAction({
-            type: "setResponseOFerver",
-            playload: {
-              dataServeur: res.data,
-            },
-          })
-        );
+    try{
+      axios.defaults.withCredentials = true
+      axios.post("http://localhost:3306/api/auth/register",{
+        nom: taskState.userdata.dataClients.nom,
+        mail : taskState.userdata.dataClients.mail,
+        pass : taskState.userdata.dataClients.pass,
+        username : taskState.userdata.dataClients.username
+      })
+      .then((res) => setuserdata(res.data.success))
       setTimeout(() => {
         navigate(
           "/login",
@@ -75,7 +62,8 @@ function Register() {
       console.log("Chargement . . .");
     }
   }
-  console.log(taskState);
+  console.log(taskState.userdata.dataClients);
+  console.log(data)
 
   return (
     <>

@@ -21,7 +21,7 @@ const App = () => {
         <Route path="/*" element="404" />
         <Route path="/login" element={<LoginComposant />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/Dashbord" element={<Dashbord />} />
+        <Route path="/dashbord" element={<Dashbord />} />
       </Routes>
     </BrowserRouter>
   );

@@ -1,9 +1,12 @@
 import { Button } from "@mui/material";
+import Dashbord from "@/Pages/Dashbord";
 
-function DisconnectBtn() {
+function DisconnectBtn({resData}) {
+const handleClear = async (e) => {
+}
     return ( 
         <>
-        <Button type="submit" variant="outlined">Se déconnecter</Button>
+        <Button onClick={resData && handleClear}   type="submit" variant="outlined">Se déconnecter</Button>
         </>
      );
 }
