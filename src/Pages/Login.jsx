@@ -14,17 +14,17 @@ function LoginComposant() {
     inputpass: {},
     action: false,
     saveresponse: {},
-    error: {},
+    error: {}, 
     errorpassWord: "",
   });
-
+const ShowTogglePassword = () => setShowPassword(!showPassword);
   const navigate = useNavigate();
 
   const dataSaveremail = (event) => {
     dispatch({
       type: "Setemail",
       playload: {
-        inputemail: {
+        inputemail: { 
           mail: event.target.value.trim(),
         },
       },
@@ -45,17 +45,17 @@ function LoginComposant() {
 
     e.preventDefault();
     axios
-      .post("http://localhost:3306/login", {
+      .post("http://localhost:3306/api/auth/login", {
         mail: tasksState.inputemail.mail,
+        pass: tasksState.inputpass.pass,
         pass: tasksState.inputpass.pass,
       })
       .then((res) => {
-        if(res.data.login == true){
-          <Dashbord message={res.data.login}></Dashbord>
-          return navigate("/dashbord")
-         
+        console.log(res);
+        if (res.data.success == true) {
+          return navigate("/dashbord");
         }
-        navigate("/login")
+        navigate("/login");
       })
       .catch((err) => console.error(err));
   };
@@ -87,6 +87,7 @@ function LoginComposant() {
               placeholder="Entrer votre mot de passe "
               onChange={dataSaverpass}
               value={tasksState.inputemail.pass}
+              aria-label="password"
             />
             <br></br>
             <Button

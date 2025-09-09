@@ -13,7 +13,7 @@ function Register() {
     isLoading: false,
     BtnSubmit: false,
   });
-    const navigate = useNavigate();
+  const navigate = useNavigate();
   const [data, setData] = useState({});
   const [userdata, setuserdata] = useState({});
   const handleChange = (e) => {
@@ -36,15 +36,16 @@ function Register() {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    try{
-      axios.defaults.withCredentials = true
-      axios.post("http://localhost:3306/api/auth/register",{
-        nom: taskState.userdata.dataClients.nom,
-        mail : taskState.userdata.dataClients.mail,
-        pass : taskState.userdata.dataClients.pass,
-        username : taskState.userdata.dataClients.username
-      })
-      .then((res) => setuserdata(res.data.success))
+    try {
+      axios.defaults.withCredentials = true;
+      axios
+        .post("http://localhost:3306/api/auth/register", {
+          nom: taskState.userdata.dataClients.nom,
+          mail: taskState.userdata.dataClients.mail,
+          pass: taskState.userdata.dataClients.pass,
+          username: taskState.userdata.dataClients.username,
+        })
+        .then((res) => setuserdata(res.data.success));
       setTimeout(() => {
         navigate(
           "/login",
@@ -63,7 +64,7 @@ function Register() {
     }
   }
   console.log(taskState.userdata.dataClients);
-  console.log(data)
+  console.log(data);
 
   return (
     <>
