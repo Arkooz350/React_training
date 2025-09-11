@@ -1,5 +1,5 @@
 import React from "react";
-import Ville_a_decouvrire from "../../Pages/Ville_a_decouvrire";
+import Ville_a_decouvrire from "../../Pages/City";
 import { useState } from "react";
 import "../../Style/Afficher.css";
 

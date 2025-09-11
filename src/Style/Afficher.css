@@ -1,16 +1,23 @@
-.mainDiv{
-}
-.DivTrueComposantA {
-    background: green;
-    text-align: center;
+.NavDiv{
+    justify-content: center;
     display: flex;
-    border-radius: 30px;
-    width: 80%;
-    margin: 10% auto;
-    transition: ease-in-out (2s);
-    transform: translateY(10%);
-}.Overflow{
-    transition:  transform ease-in-out 1500ms;
-    transform: translateY(45px);
-    
+
+}.SousMenu{
+    display: flex;
+    justify-content: center ;
+
+}#h1Decouverte{
+    position: relative;
+    text-align: center;
+    display: inline-flex;
+    color:242423;
+    margin-left: 20em;
+    background-color: gray;
+    border-radius: 5em;
+    padding: 2em;
+    z-index: 1;
+  justify-content: center;
+}#Breadcrumbs{
+    margin-left: 2em;
+
 }

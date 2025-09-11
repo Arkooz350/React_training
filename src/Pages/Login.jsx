@@ -14,17 +14,19 @@ function LoginComposant() {
     inputpass: {},
     action: false,
     saveresponse: {},
-    error: {}, 
+    error: {},
     errorpassWord: "",
+    savedataTodashbord: {},
   });
-const ShowTogglePassword = () => setShowPassword(!showPassword);
+  const ShowTogglePassword = () => setShowPassword(!showPassword);
+  const [datatodashbord, setdatatodashbord] = useState({});
   const navigate = useNavigate();
 
   const dataSaveremail = (event) => {
     dispatch({
       type: "Setemail",
       playload: {
-        inputemail: { 
+        inputemail: {
           mail: event.target.value.trim(),
         },
       },
@@ -40,6 +42,7 @@ const ShowTogglePassword = () => setShowPassword(!showPassword);
       },
     });
   };
+
   const handleConnection = async (e) => {
     axios.defaults.withCredentials = true;
 
@@ -51,14 +54,27 @@ const ShowTogglePassword = () => setShowPassword(!showPassword);
         pass: tasksState.inputpass.pass,
       })
       .then((res) => {
-        console.log(res);
+        setdatatodashbord(res.data);
         if (res.data.success == true) {
           return navigate("/dashbord");
+         
         }
         navigate("/login");
       })
       .catch((err) => console.error(err));
   };
+  useEffect(() => {
+    const Apidash = async () => {
+      axios.defaults.withCredentials = true;
+      axios.post("http://localhost:3306/api/auth/dashbord", {
+        donnes: datatodashbord,
+      });
+       Apidash();
+    };
+    
+  
+  }, []);
+
   return (
     <>
       <div style={{ justifyItems: "center" }}>

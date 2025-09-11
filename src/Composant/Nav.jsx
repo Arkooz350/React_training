@@ -25,7 +25,7 @@ const Nav = () => {
       </NavLink>
       </ul>
       <ul>
-        <NavLink to="/ville_a_decouvrire"  >
+        <NavLink to="/city"  >
           
          <LocationCityIcon color="primary" fontSize="large"/></NavLink>
      </ul>
