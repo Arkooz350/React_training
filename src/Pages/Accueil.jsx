@@ -12,7 +12,7 @@ import Button from "@mui/material/Button";
 import { car } from "../Composant/Tableaux/ShowCar";
 import ComposantCitroenAccueil from "../Composant/ComposantPageAcceuil/ComposantCar/ComposantCitroenAccueil";
 import ShowPriceOpacity from "../Composant/ComposantPageAcceuil/ComposantCar/ShowPriceOpacity";
-
+import AccountBoxOutlinedIcon from '@mui/icons-material/AccountBoxOutlined';
 
 const Acceuil = () => {
   const [click, setclick] = useState();
@@ -22,6 +22,9 @@ const Acceuil = () => {
       style={{ display: "inline-block", justifyItems: "center" }}
     >
       <Nav />
+      <div className="AccIcon"> 
+      <AccountBoxOutlinedIcon  fontSize="large" > </AccountBoxOutlinedIcon>  <li style={{listStyle : "none"}}> Mon compte</li>
+  </div>
 
       <div
         className="middletextAc"
@@ -76,8 +79,7 @@ const Acceuil = () => {
       </div>
 
       <div className="allblock1" style={{ display: "flex", gap: "20em" }}>
-        <div className="block1info">
-        </div>
+        <div className="block1info"></div>
         <div className="block2conso"></div>
       </div>
     </div>

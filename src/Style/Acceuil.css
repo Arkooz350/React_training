@@ -2,7 +2,6 @@
 @import "tw-animate-css"; 
  */
 
-
 html {
   background: #333533;
   font-family: "Montserrat", sans-serif;
@@ -23,9 +22,9 @@ html {
   display: flex;
 }
 .navigation:hover {
-  background-color:	#bff23d;
+  background-color: #bff23d;
   transition: 1000ms ease;
-  -webkit-box-shadow: inset -1px 3px 8px 5px #bff23d, 2px 5px 16px 0px ,
+  -webkit-box-shadow: inset -1px 3px 8px 5px #bff23d, 2px 5px 16px 0px,
     -10px -19px 34px -1px #bff23d;
   box-shadow: inset -1px 3px 8px 5px #bff23d, 2px 5px 16px 0px #6b6767da,
     -1px -1px 35px -1px#bff23d;
@@ -43,21 +42,28 @@ html {
 input {
   display: flex;
 }
-.allimage{
+.allimage {
   background: #242423;
   border-radius: 25px;
   display: inline-flex;
   position: relative;
   height: 75%;
   z-index: 1;
-
-}.imgPeugeot:hover ,.imgToyota:hover, .imgCitroen:hover{
--webkit-box-shadow: 0px 0px 0px 5px #A0A0A0, inset 0px 10px 27px -8px #141414, inset 0px -10px 27px -8px #A31925, -50px -37px 0px -2px rgba(245,203,92,0); 
-box-shadow: 0px 0px 0px 5px #f5f5dc, inset 0px 10px 27px -8px #141414, inset 0px -10px 27px -8px #A31925, -50px -37px 0px -2px rgba(245,203,92,0);
- transform: scale(1);
 }
-.block1info , .block2conso{
-  display:inline-flex;
+.imgPeugeot:hover,
+.imgToyota:hover,
+.imgCitroen:hover {
+  -webkit-box-shadow: 0px 0px 0px 5px #a0a0a0, inset 0px 10px 27px -8px #141414,
+    inset 0px -10px 27px -8px #a31925,
+    -50px -37px 0px -2px rgba(245, 203, 92, 0);
+  box-shadow: 0px 0px 0px 5px #f5f5dc, inset 0px 10px 27px -8px #141414,
+    inset 0px -10px 27px -8px #a31925,
+    -50px -37px 0px -2px rgba(245, 203, 92, 0);
+  transform: scale(1);
+}
+.block1info,
+.block2conso {
+  display: inline-flex;
   position: relative;
   width: 500px;
   height: 560px;
@@ -65,17 +71,20 @@ box-shadow: 0px 0px 0px 5px #f5f5dc, inset 0px 10px 27px -8px #141414, inset 0px
   gap: 25px;
   margin: 15px;
   border-radius: 45px;
-}.InputGo{
-     display:inline-block;
-}.InputGo > input{
-    border-radius: 15px;
-}.BlockForm{
-    display: inline-block;
-    width: 50%;
-    background:#bff23d;
-    margin-top: 3em;
-    border-radius: 15px;
-/* }.DivCarac{
+}
+.InputGo {
+  display: inline-block;
+}
+.InputGo > input {
+  border-radius: 15px;
+}
+.BlockForm {
+  display: inline-block;
+  width: 50%;
+  background: #bff23d;
+  margin-top: 3em;
+  border-radius: 15px;
+  /* }.DivCarac{
   z-index: 1;
   background:  #bff23d;
   opacity: 50%;
@@ -84,42 +93,62 @@ box-shadow: 0px 0px 0px 5px #f5f5dc, inset 0px 10px 27px -8px #141414, inset 0px
   position: absolute;
   width: 15%;
   text-align: center; */
-
-}.ShowPrice{ 
- display: flex;
- justify-content: center;
- background-color: #bff23d;
- border-radius: 45px;
- height: 75%;
- color: #000000;
- font-weight: 900;
-}.HoverTest{
+}
+.ShowPrice {
+  display: flex;
+  justify-content: center;
+  background-color: #bff23d;
+  border-radius: 45px;
+  height: 75%;
+  color: #000000;
+  font-weight: 900;
+}
+.HoverTest {
   background-color: red;
   border-radius: 15px;
   transform: translateX(45px);
   transition: ease-in-out 1500ms;
   background-color: #bff23d;
-position: relative;
-display: inline-block;
-border-radius: 20px;
-color: #000000;
-justify-items: center;
-width: 35%;
-height: 10% auto;
-}.DivPriceModif{
-background-color: #bff23d;
-position: relative;
-display: inline-block;
-border-radius: 20px;
-color: #000000;
-justify-items: center;
-width: 35%;
-height: 10% auto;
- transition: ease-in-out 1500ms;
-}.Test{
+  position: relative;
+  display: inline-block;
+  border-radius: 20px;
+  color: #000000;
+  justify-items: center;
+  width: 35%;
+  height: 10% auto;
+}
+.DivPriceModif {
+  background-color: #bff23d;
+  position: relative;
+  display: inline-block;
+  border-radius: 20px;
+  color: #000000;
+  justify-items: center;
+  width: 35%;
+  height: 10% auto;
+  transition: ease-in-out 1500ms;
+}
+.Test {
   display: inline-flex;
-  background-color:#bff23d;
+  background-color: #bff23d;
   justify-content: right;
   border-radius: 25px;
-
+}
+.AccIconConnect {
+  display: flex;
+  background-color: green;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.AccDisconnect {
+  display: flex;
+  background-color: #a31925;
+  border-radius: 5px;
+  cursor: pointer;
+}.AccIcon{
+justify-content: center;
+display: flex;
+ gap: 1em;
+ margin-bottom: 0;
+ bottom: 5px;
 }

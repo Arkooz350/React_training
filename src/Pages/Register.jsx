@@ -13,25 +13,38 @@ function Register() {
     isLoading: false,
     BtnSubmit: false,
   });
+  const [userdata, setuserdata] = useState([]);
   const navigate = useNavigate();
-  const [data, setData] = useState({});
-  const [userdata, setuserdata] = useState({});
-  const handleChange = (e) => {
-    setData({ ...data, [e.target.name]: e.target.value });
-    dispatchAction({
-      type: "userdata",
-      playload: {
-        userdata: {
-          dataClients: {
-            username: data.username,
-            nom: data.nom,
-            mail: data.mail,
-            pass: data.pass,
-            passCheck: data.passCheck,
+  const [data, setData] = useState([]);
+
+  const regex = () => {
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    return regex(emailRegex.test);
+  };
+  const handleChange = async (e) => {
+    const { name, value } = e.target;
+    setData({ ...data, [name]: value });
+    dispatchAction(
+      {
+        type: "userdata",
+        playload: {
+          userdata: {
+            ...data,
+            [name]: e.value,
           },
         },
       },
-    });
+      console.log(taskState.userdata)
+    );
+    return data;
+  };
+  const verifyEmail = (e) => {
+    e.preventDefault();
+    axios
+      .post("http://localhost:3306/api/auth/register/verify-email", {
+        mail: data.mail,
+      })
+      .then((res) => console.log(res.data.success));
   };
 
   async function handleSubmit(e) {
@@ -63,9 +76,6 @@ function Register() {
       console.log("Chargement . . .");
     }
   }
-  console.log(taskState.userdata.dataClients);
-  console.log(data);
-
   return (
     <>
       <div style={{ justifyItems: "center" }}>
@@ -79,22 +89,23 @@ function Register() {
               <TextField
                 label="username"
                 name="username"
-                value={taskState.username}
+                value={data.username}
                 onChange={handleChange}
                 required={true}
               ></TextField>
               <TextField
                 label="name"
                 name="nom"
-                value={taskState.nom}
+                value={data.nom}
                 onChange={handleChange}
                 required={true}
               ></TextField>
               <TextField
+                onBlur={verifyEmail}
                 onChange={handleChange}
                 label="email"
                 color="black"
-                value={taskState.mail}
+                value={data.mail}
                 name="mail"
                 type="email"
                 required={true}
@@ -107,7 +118,7 @@ function Register() {
                 color="black"
                 name="pass"
                 required={true}
-                value={taskState.pass}
+                value={data.pass}
               ></TextField>
               <TextField
                 id="pass2"
@@ -123,7 +134,7 @@ function Register() {
                 <p>Merci de rentrer un mail valide !! </p>
               )}
               J'accepte les conditions génerale de la plateforme
-              <Button className="senddata" type="submit" disabled={false}>
+              <Button className="senddata" type="submit" disabled={true}>
                 Valider
               </Button>
             </div>

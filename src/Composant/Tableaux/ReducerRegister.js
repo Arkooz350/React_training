@@ -2,9 +2,7 @@ function ReducerRegister(state, action) {
   if (action.type === "userdata") {
     return {
       ...state,
-      userdata: {
-        dataClients: action.playload.userdata.dataClients,
-      },
+      userdata: action.playload.userdata,
     };
   }
   if (action.type === "setResponseOFerver") {

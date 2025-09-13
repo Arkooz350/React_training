@@ -12,8 +12,8 @@ const Nav = () => {
         <NavLink 
           to="/"
           className="NavAcceuil"
-        >
-     <HomeIcon color="primary" fontSize="large"/>
+        > 
+     <HomeIcon color="primary" fontSize="large" />
         </NavLink>
       </ul>
       <ul>
