@@ -44,7 +44,7 @@ function Register() {
       .post("http://localhost:3306/api/auth/register/verify-email", {
         mail: data.mail,
       })
-      .then((res) => console.log(res.data.success));
+      .then((res) => console.log(res.data));
   };
 
   async function handleSubmit(e) {
@@ -53,19 +53,14 @@ function Register() {
       axios.defaults.withCredentials = true;
       axios
         .post("http://localhost:3306/api/auth/register", {
-          nom: taskState.userdata.dataClients.nom,
-          mail: taskState.userdata.dataClients.mail,
-          pass: taskState.userdata.dataClients.pass,
-          username: taskState.userdata.dataClients.username,
+          nom: data.nom,
+          mail: data.mail,
+          pass: data.pass,
+          username: data.username,
         })
         .then((res) => setuserdata(res.data.success));
       setTimeout(() => {
-        navigate(
-          "/login",
-          <div className="AlertPopup">
-            <Alert severity="info">This is an info Alert.</Alert>
-          </div>
-        );
+        navigate("/login");
       }, 2500);
     } catch (error) {
       console.error(error);
@@ -129,12 +124,17 @@ function Register() {
                 name="passCheck"
                 value={taskState.passCheck}
               ></TextField>
-              <input type="checkbox" value={true}></input>
-              {taskState.userdata.mail && (
-                <p>Merci de rentrer un mail valide !! </p>
-              )}
-              J'accepte les conditions génerale de la plateforme
-              <Button className="senddata" type="submit" disabled={true}>
+              <input
+                id="cgvid"
+                type="checkbox"
+                name="CGV"
+                value={data && false}
+              ></input>
+              <label htmlFor="cgvid" style={{ color: "black" }}>
+                Condition General de vente{" "}
+              </label>
+
+              <Button className="senddata" type="submit" disabled={false}>
                 Valider
               </Button>
             </div>

@@ -10,54 +10,36 @@ import TaskReducer from "@/Composant/Tableaux/TasksReducer";
 
 function LoginComposant() {
   const [tasksState, dispatch] = useReducer(TaskReducer, {
-    inputemail: {},
-    inputpass: {},
     action: false,
     saveresponse: {},
     error: {},
-    errorpassWord: "",
-    savedataTodashbord: {},
   });
-  const ShowTogglePassword = () => setShowPassword(!showPassword);
   const [datatodashbord, setdatatodashbord] = useState({});
   const navigate = useNavigate();
+  const [datauser, setdataUser] = useState({});
 
-  const dataSaveremail = (event) => {
-    dispatch({
-      type: "Setemail",
-      playload: {
-        inputemail: {
-          mail: event.target.value.trim(),
-        },
-      },
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    const pressdata = { ...datauser, [name]: value };
+    setdataUser({
+      ...datauser,
+      [name]: value,
     });
+    console.log(pressdata);
+    console.log(datauser.mail);
   };
-  const dataSaverpass = (e) => {
-    dispatch({
-      type: "Setpass",
-      playload: {
-        inputpass: {
-          pass: e.target.value.trim(),
-        },
-      },
-    });
-  };
-
   const handleConnection = async (e) => {
     axios.defaults.withCredentials = true;
-
     e.preventDefault();
     axios
       .post("http://localhost:3306/api/auth/login", {
-        mail: tasksState.inputemail.mail,
-        pass: tasksState.inputpass.pass,
-        pass: tasksState.inputpass.pass,
+        mail: datauser.mail,
+        pass: datauser.pass,
       })
       .then((res) => {
         setdatatodashbord(res.data);
         if (res.data.success == true) {
           return navigate("/dashbord");
-         
         }
         navigate("/login");
       })
@@ -69,10 +51,8 @@ function LoginComposant() {
       axios.post("http://localhost:3306/api/auth/dashbord", {
         donnes: datatodashbord,
       });
-       Apidash();
+      Apidash();
     };
-    
-  
   }, []);
 
   return (
@@ -92,17 +72,19 @@ function LoginComposant() {
               id="inputMail"
               type="email"
               placeholder="Entrer votre adresse-mail"
-              onChange={dataSaveremail}
-              value={tasksState.inputemail.mail}
+              onChange={handleChange}
+              value={datauser.mail}
+              name="mail"
             />
             <label htmlFor="inputPassWord" /> Mot de passe :
             <input
               required
               id="inputPassWord"
+              name="pass"
               type="password"
               placeholder="Entrer votre mot de passe "
-              onChange={dataSaverpass}
-              value={tasksState.inputemail.pass}
+              onChange={handleChange}
+              value={datauser.pass}
               aria-label="password"
             />
             <br></br>
@@ -126,5 +108,4 @@ function LoginComposant() {
     </>
   );
 }
-
 export default LoginComposant;

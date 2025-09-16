@@ -1,5 +1,8 @@
+@import "tailwindcss"
 
-.FirstBlockDiv {
+
+
+/* .FirstBlockDiv {
    background: #242423;
   border-radius: 25px;
   display: inline-flex;
@@ -29,4 +32,4 @@
   border-radius: 15px;
   display:grid
 
-}
+} */

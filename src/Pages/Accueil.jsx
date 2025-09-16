@@ -82,7 +82,10 @@ const Acceuil = () => {
         <div className="block1info"></div>
         <div className="block2conso"></div>
       </div>
+      <p className="text-sm text-gray-500">SALMUT</p>
     </div>
+
+
   );
 };
 
