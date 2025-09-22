@@ -30,7 +30,7 @@
   display:grid
 
 }.mainDivSigin{
-    display: inline-flex;
+    display: flex;
     justify-items: center;
 justify-content: center;
     height: 100%;
@@ -38,8 +38,10 @@ justify-content: center;
 }.TableInfos{
     display: grid;
     justify-content: center;
-    background-color: #bff23d;
     border-radius: 2em;
+    width: 25em;
+    height: 25em;
+
 }.allDivsigin{
     background-color:#242423;
     border-radius: 2em;

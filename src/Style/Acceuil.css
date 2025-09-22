@@ -81,7 +81,7 @@ input {
 .BlockForm {
   display: inline-block;
   width: 50%;
-  background: #bff23d;
+  background: #7F7F7C;
   margin-top: 3em;
   border-radius: 15px;
   /* }.DivCarac{
@@ -179,10 +179,8 @@ display: flex;
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
 }@layer base {
-  * {
-    @apply border-border outline-ring/50;
-  }
+
   body {
-    @apply bg-background text-foreground;
+
   }
 }

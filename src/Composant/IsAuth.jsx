@@ -1,11 +1,15 @@
+import Dashbord from "@/Pages/Dashbord";
+import { Navigate, Outlet, Route, Routes } from "react-router-dom";
+import { redirect } from "react-router";
 
-import React from "react";
-import {Navigate, useNavigate} from "react-router-dom";
-import Dashboard from "../Pages/Dashbord";
+const IsAuth = ({ success, children, ...rest }) => {
+  const isAuthificate = !!success;
+  return isAuthificate ? children : <Navigate to="/login"></Navigate>;
 
-const IsAuth = ({success , composant : Composant , ...rest}) => {
-    const isAuthenticated = !!mail;
-    console.log(isAuthenticated) // Replace with your actual authentication logic
-    return isAuthenticated ? <Composant {...rest} /> : <Navigate to="/login" />;
+  return (
+    <>
+      <Dashbord></Dashbord>
+    </>
+  );
 };
 export default IsAuth;

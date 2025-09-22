@@ -2,11 +2,12 @@ import React, { useEffect, useMemo, useReducer, useState } from "react";
 import Nav from "../Composant/Nav";
 import "../Style/Login.css";
 import Button from "@mui/material/Button";
-import { NavLink, useNavigate } from "react-router-dom";
+import { Navigate, NavLink, useNavigate } from "react-router-dom";
 import Register from "./Register";
 import axios from "axios";
 import Dashbord from "./Dashbord";
 import TaskReducer from "@/Composant/Tableaux/TasksReducer";
+import IsAuth from "@/Composant/IsAuth";
 
 function LoginComposant() {
   const [tasksState, dispatch] = useReducer(TaskReducer, {
@@ -17,6 +18,7 @@ function LoginComposant() {
   const [datatodashbord, setdatatodashbord] = useState({});
   const navigate = useNavigate();
   const [datauser, setdataUser] = useState({});
+  const [user, setuser] = useState(true);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -28,6 +30,7 @@ function LoginComposant() {
     console.log(pressdata);
     console.log(datauser.mail);
   };
+
   const handleConnection = async (e) => {
     axios.defaults.withCredentials = true;
     e.preventDefault();
@@ -36,22 +39,27 @@ function LoginComposant() {
         mail: datauser.mail,
         pass: datauser.pass,
       })
+
       .then((res) => {
         setdatatodashbord(res.data);
         if (res.data.success == true) {
-          return navigate("/dashbord");
+          return IsAuth(
+            { success: datauser.mail },
+            navigate("/dashbord"),
+            cookieStore.get({ name: "token" })
+          );
         }
-        navigate("/login");
+        return IsAuth(false);
       })
       .catch((err) => console.error(err));
   };
+
   useEffect(() => {
     const Apidash = async () => {
       axios.defaults.withCredentials = true;
       axios.post("http://localhost:3306/api/auth/dashbord", {
         donnes: datatodashbord,
       });
-      Apidash();
     };
   }, []);
 
