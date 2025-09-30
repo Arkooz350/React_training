@@ -3,14 +3,12 @@ import DisconnectBtn from "../../Composant/ComposantDashbord/DisconnectBtn";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import FirstPageIcon from "@mui/icons-material/FirstPage";
-import IsAuth from "@/Composant/IsAuth";
+
 import axios from "axios";
 
 function Profile() {
   const navigate = useNavigate();
   const [input, setinput] = useState({});
-
-  LinksDashBord({ mail: input });
 
   return (
     <>

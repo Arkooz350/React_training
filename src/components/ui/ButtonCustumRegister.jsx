@@ -4,23 +4,24 @@ import { Button } from "./button";
 import { Loader2Icon } from "lucide-react";
 import { useForm } from "react-hook-form";
 import Register from "@/Pages/Register";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 
-function ButtonCustumRegister({ verifyEmail }) {
+function ButtonCustumRegister({ onConnection }) {
   const [load, setload] = useState(false);
+  const [trueload, settrueload] = useState(true);
 
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const onSubmit = (event) => {
-    // Register({ dataForm: event });
-    console.log(event);
+  const onSubmit = (data) => {
+    // console.log(event);
+    onConnection(data);
   };
-  console.log(load);
   return (
     <form
+      typeof="submit"
       onSubmit={handleSubmit(onSubmit)}
       className="grid m-auto p-auto text-center bg"
     >
@@ -73,6 +74,7 @@ function ButtonCustumRegister({ verifyEmail }) {
                 value: " 12 ",
                 message: " password invalid please use least a 12 character ! ",
               },
+              onBlur: () => settrueload(false),
             })}
             type="password"
             id="pass"
@@ -96,20 +98,16 @@ function ButtonCustumRegister({ verifyEmail }) {
 
           {load ? (
             <Button size="sm" disabled>
-              {" "}
               <Loader2Icon className="animate-spin hover: scale-200 gap-5" />{" "}
               Please Wait
             </Button>
           ) : (
             <div className="flex flex-wrap items-center gap-2 md:flex-row">
-              <Button
-                className="bg-gray-500"
-                {...(load && setload(true))}
-                onSubmit={(e) => onSubmit}
-              >
+              <Button disabled={trueload} className="bg-gray-500">
                 {" "}
                 Signup
               </Button>
+              {}
             </div>
           )}
         </div>

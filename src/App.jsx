@@ -1,5 +1,5 @@
 import "./main";
-import React, { useState } from "react";
+import React, { lazy, useState } from "react";
 import {
   BrowserRouter,
   Routes,
@@ -14,27 +14,25 @@ import "./Style/Acceuil.css";
 import City from "./Pages/City";
 import LoginComposant from "./Pages/Login";
 import Register from "./Pages/Register.jsx";
-import Dashboard from "./Pages/Dashbord";
+import Dashbord from "./Pages/Dashbord";
 import Profile from "./Pages/PagesDashbord/Profile";
-import IsAuth from "./Composant/isAuth";
+import IsAuth from "./utils/IsAuth";
 const App = () => {
-  const [boolean, setboolean] = useState(false);
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/City" element={<City />}></Route>
+        <Route path="/city" element={<City />}></Route>
         <Route path="/" element={<Acceuil />} />
         <Route path="/search" element={<Search />} />
         <Route path="/*" element="404" />
         <Route path="/login" element={<LoginComposant />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/profile" element={<Profile />} />
+        <Route path="/register" element={<Register></Register>} />
         <Route
           path="/dashbord"
           element={
             <>
               <IsAuth>
-                <Dashboard></Dashboard>
+                <Dashbord></Dashbord>
               </IsAuth>
             </>
           }
@@ -44,6 +42,7 @@ const App = () => {
           element={
             <IsAuth>
               <Profile />
+              //{" "}
             </IsAuth>
           }
         />

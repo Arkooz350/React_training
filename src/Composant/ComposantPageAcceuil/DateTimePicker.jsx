@@ -16,8 +16,8 @@ import {
 
 export function Calendar24() {
   const [open, setOpen] = React.useState(false);
-  const [date, setDate] = [(useState < Date) | (undefined > undefined)];
-
+  const [date, setDate] = [(useState < Date.now()) | (undefined > undefined)];
+  console.log(date);
   return (
     <div className="flex gap-4">
       <div className="flex flex-col gap-3">
@@ -40,8 +40,8 @@ export function Calendar24() {
               mode="single"
               selected={date}
               captionLayout="dropdown"
-              onSelect={(date) => {
-                setDate(date.target);
+              onSelect={(data) => {
+                setDate(data.target);
                 setOpen(false);
               }}
             />

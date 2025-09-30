@@ -6,10 +6,12 @@ import { NavLink, useNavigate } from "react-router";
 import MenuIcon from "@mui/icons-material/Menu";
 import { Button } from "@/components/ui/button";
 import LinksDashBord from "@/Composant/ComposantDashbord/LinksTodashbord";
-import IsAuth from "@/Composant/IsAuth";
+import IsAuth from "@/utils/IsAuth";
+import IconAcc from "@/Composant/ComposantPageAcceuil/IconAcc";
 
-function Dashbord() {
+function Dashbord({ data }) {
   const [click, setclick] = useState(false);
+
   const navigate = useNavigate();
   const handleClick = (e) => {
     if (e) {
@@ -22,7 +24,7 @@ function Dashbord() {
     <>
       <div className="flex justify-center">
         <h1 className="bg-red-700 text-4xl text-white font-bold justify-content ">
-          Dashboard
+          Dashboard , {}
         </h1>
       </div>
       <div className="flex justify-center gap-10 m-4">

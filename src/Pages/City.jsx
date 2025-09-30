@@ -2,7 +2,7 @@ import React, { use } from "react";
 import Nav from "../Composant/Nav";
 import { useState } from "react";
 import { Breadcrumbs, Link, Typography } from "@mui/material";
-import '../Style/Afficher.css'
+import "../Style/Afficher.css";
 
 function Ville_a_decouvrire() {
   const [villeChoisi, setVilleChoisi] = useState();
@@ -14,7 +14,6 @@ function Ville_a_decouvrire() {
         <Nav />
       </div>
       <label id="Breadcrumbs">
-        
         <Breadcrumbs aria-label="breadcrumb">
           <Link underline="hover" color="inherit" href="/">
             {" "}
@@ -24,7 +23,10 @@ function Ville_a_decouvrire() {
           <Typography sx={{ color: "#bff23d" }}>Ville</Typography>
         </Breadcrumbs>
       </label>
-      <h2 id="h1Decouverte"> Découvrer nos agence dans plusieurs ville en France ! </h2>
+      <h2 id="h1Decouverte">
+        {" "}
+        Découvrer nos agence dans plusieurs ville en France !{" "}
+      </h2>
       <option></option>
     </div>
   );

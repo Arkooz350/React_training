@@ -2,23 +2,27 @@ import React, { useEffect, useMemo, useReducer, useState } from "react";
 import Nav from "../Composant/Nav";
 import "../Style/Login.css";
 import Button from "@mui/material/Button";
-import { Navigate, NavLink, useNavigate } from "react-router-dom";
-import Register from "./Register";
+import { Navigate, NavLink, useNavigate, Route } from "react-router-dom";
 import axios from "axios";
-import Dashbord from "./Dashbord";
 import TaskReducer from "@/Composant/Tableaux/TasksReducer";
-import IsAuth from "@/Composant/IsAuth";
+import IsAuth from "@/utils/IsAuth";
+import { Alert, AlertTitle } from "@/components/ui/alert";
+import { CheckCircle2Icon } from "lucide-react";
+import { DataStatusLogin } from "@/utils/ContextLogin.jsx";
+import { useContext } from "react";
+import { DataContextProvider } from "@/utils/ContextLogin.jsx";
 
 function LoginComposant() {
+  const valueContext = useContext(DataStatusLogin);
   const [tasksState, dispatch] = useReducer(TaskReducer, {
     action: false,
     saveresponse: {},
     error: {},
   });
-  const [datatodashbord, setdatatodashbord] = useState({});
+  IsAuth;
+  const [dataStatus, setdataStatus] = useState({});
   const navigate = useNavigate();
   const [datauser, setdataUser] = useState({});
-  const [user, setuser] = useState(true);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -39,29 +43,14 @@ function LoginComposant() {
         mail: datauser.mail,
         pass: datauser.pass,
       })
-
-      .then((res) => {
-        setdatatodashbord(res.data);
-        if (res.data.success == true) {
-          return IsAuth(
-            { success: datauser.mail },
-            navigate("/dashbord"),
-            cookieStore.get({ name: "token" })
-          );
+      .then((response) => {
+        setdataStatus(response);
+        if (response.status === 200) {
+          navigate("/dashbord");
         }
-        return IsAuth(false);
       })
       .catch((err) => console.error(err));
   };
-
-  useEffect(() => {
-    const Apidash = async () => {
-      axios.defaults.withCredentials = true;
-      axios.post("http://localhost:3306/api/auth/dashbord", {
-        donnes: datatodashbord,
-      });
-    };
-  }, []);
 
   return (
     <>
@@ -111,9 +100,11 @@ function LoginComposant() {
           Mot de passe Oublier ?
           <br />
           <NavLink to="/register">S'inscrire</NavLink>
+          <DataContextProvider children={dataStatus} />
         </div>
       </div>
     </>
   );
 }
+
 export default LoginComposant;

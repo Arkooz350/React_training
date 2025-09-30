@@ -7,7 +7,10 @@ import ShowPriceOpacity from "./ShowPriceOpacity";
 export default function ComposantCitroenAccueil({ vehicle }) {
   const [look, setLook] = useState(false);
   return (
-    <div key={vehicle.id} className={"Div" + vehicle.alt}>
+    <div
+      key={vehicle.id}
+      className=" block overflow-hidden duration-300 transform  "
+    >
       <img
         onMouseEnter={() => setLook(true)}
         onMouseLeave={() => setLook(false)}

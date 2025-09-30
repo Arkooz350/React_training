@@ -1,37 +1,44 @@
 import "../Style/register.css";
 import Nav from "../Composant/Nav";
-import { Alert, AlertTitle, Button, TextField } from "@mui/material";
-import { useEffect, useReducer, useRef, useState } from "react";
-import { data, useNavigate } from "react-router";
+import { useMemo, useReducer } from "react";
+import { useNavigate } from "react-router";
 import ReducerRegister from "@/Composant/Tableaux/ReducerRegister";
 import axios from "axios";
-import { useForm } from "react-hook-form";
 import ButtonCustumRegister from "@/components/ui/ButtonCustumRegister.jsx";
-function Register({ dataForm }) {
+
+function Register() {
   const [taskState, dispatchAction] = useReducer(ReducerRegister, {
     userdata: {},
     dataServeur: {},
     isLoading: false,
     BtnSubmit: false,
   });
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
-  const [userdata, setuserdata] = useState({});
   const navigate = useNavigate();
-  const [isLoading, setisLoading] = useState(false);
 
-  const VerifyEmail = () => {
-    axios.defaults.withCredentials = true;
-    const response1 = axios
-      .post("http://localhost:3306/api/auth/register/verify-email", {
-        mail: dataForm.email,
-      })
-      .then((response) => console.log(response));
-    console.log(response1);
+  const ConnectionRegister = async (formdata) => {
+    try {
+      axios.defaults.withCredentials = true;
+      const response = axios.post("http://localhost:3306/api/auth/register", {
+        nom: formdata.nom,
+        mail: formdata.email,
+        pass: formdata.pass,
+        username: formdata.username,
+      });
+
+      response.then((res) => {
+        // OnRecieve({ responseAPI: res.data });
+        setTimeout(() => {
+          navigate("/dashbord");
+        }, 3500);
+      });
+    } catch (error) {
+      console.log(error);
+    } finally {
+    }
   };
+  useMemo(() => {
+    ButtonCustumRegister;
+  }, []);
 
   return (
     <>
@@ -44,10 +51,7 @@ function Register({ dataForm }) {
             S'inscrire
           </h2>
           <div className="TableInfos">
-            <ButtonCustumRegister
-              verifyEmail={VerifyEmail}
-              isLoading={isLoading}
-            />
+            <ButtonCustumRegister onConnection={ConnectionRegister} />
           </div>
         </div>
       </div>
