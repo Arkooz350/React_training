@@ -14,7 +14,9 @@ function ButtonCustumRegister({ onConnection }) {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm({
+    mode: "onTouched",
+  });
   const onSubmit = (data) => {
     // console.log(event);
     onConnection(data);

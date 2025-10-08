@@ -16,8 +16,9 @@ import {
 
 export function Calendar24() {
   const [open, setOpen] = React.useState(false);
-  const [date, setDate] = [(useState < Date.now()) | (undefined > undefined)];
-  console.log(date);
+  const [date, setDate] = useState(null);
+  const [allTime, setallTime] = useState();
+
   return (
     <div className="flex gap-4">
       <div className="flex flex-col gap-3">
@@ -37,11 +38,12 @@ export function Calendar24() {
           </PopoverTrigger>
           <PopoverContent className="w-auto overflow-hidden p-0" align="start">
             <Calendar
+              name="date"
               mode="single"
               selected={date}
               captionLayout="dropdown"
               onSelect={(data) => {
-                setDate(data.target);
+                setDate(data);
                 setOpen(false);
               }}
             />
@@ -53,10 +55,13 @@ export function Calendar24() {
           Time
         </Label>
         <Input
+          value={allTime}
+          onChange={(e) => setallTime(e.target.value)}
           type="time"
           id="time-picker"
-          step="1"
-          defaultValue="10:30:00"
+          step="0"
+          name="time"
+          defaultValue="10:30"
           className="bg-background appearance-none [&::-webkit-calendar-picker-indicator]:hidden [&::-webkit-calendar-picker-indicator]:appearance-none"
         />
       </div>

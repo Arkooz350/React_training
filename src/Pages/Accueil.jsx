@@ -8,6 +8,7 @@ import IconAcc from "@/Composant/ComposantPageAcceuil/IconAcc";
 import { DataStatusLogin } from "@/utils/ContextLogin";
 import DataCaravailable from "@/Composant/ComposantPageAcceuil/DataCarAvailable";
 import Footer from "./Footer";
+import TableData from "@/Composant/ComposantPageAcceuil/ComposantCar/TableData";
 
 const Acceuil = () => {
   const value = useContext(DataStatusLogin);
@@ -47,7 +48,7 @@ const Acceuil = () => {
           })}
         </div>
         <div className="m-5">
-          <SelectGroupCustum />
+          <SelectGroupCustum></SelectGroupCustum>
         </div>
       </div>
 

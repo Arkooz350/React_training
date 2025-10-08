@@ -1,5 +1,5 @@
 import { Label } from "@/components/ui/label";
-import { useState } from "react";
+import { useReducer, useState } from "react";
 import {
   Select,
   SelectContent,
@@ -13,31 +13,46 @@ import { Calendar24 } from "./DateTimePicker";
 import { useForm } from "react-hook-form";
 import { Input } from "@/components/ui/input.jsx";
 import { UseDataHooks } from "@/hooks/UseDataHooks";
+import ReducerRegister from "../Tableaux/ReducerRegister";
+import TableData from "./ComposantCar/TableData";
 
 function SelectGroupCustum() {
   const {
-    control,
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
-  const { car, city, changer } = UseDataHooks();
-  const handleChange = (value1 = car) => {
-    const onReivedata = { ...changer, value1 };
-    console.log(onReivedata);
-    return;
+    reset,
+  } = useForm({
+    mode: "onTouched",
+  });
+
+  const [state, dispatchEvent] = useReducer(ReducerRegister, {
+    formDataArray: [],
+  });
+
+  const handleChange = (data) => {
+    dispatchEvent({
+      type: "ADD_TO_ARRAY",
+      payload: {
+        car: data.car,
+        city: data.city,
+        name: data.name,
+      },
+    });
+    reset(); // Réinitialise le formulaire après soumission
+    console.log("Tableau de données:", state.formDataArray);
   };
 
-  const handleChange2 = (value2 = city) => {
-    const data = { ...changer, value2 };
-    console.log(data);
-    return;
-  };
   return (
     <>
-      <div className=" inline-flex  bg-blue-600  justify-items-start m-15 rounded-2xl h-100 w-350 ">
-        <form typeof="submit" className=" grid m-10 p-5">
-          <Select onValueChange={handleChange}>
+      <div className="inline-flex bg-blue-600 justify-items-start m-15 rounded-2xl h-100 w-350">
+        <form onSubmit={handleSubmit(handleChange)} className="grid m-10 p-5">
+          <Select
+            id="car"
+            {...register("car", {
+              required: "Merci de choisir un van ",
+            })}
+          >
             <SelectTrigger className="w-[180px]">
               <SelectValue placeholder="Selectionez une voiture ! " />
             </SelectTrigger>
@@ -48,8 +63,12 @@ function SelectGroupCustum() {
             </SelectContent>
           </Select>
           <br />
-          <Select onValueChange={handleChange2}>
-            <SelectTrigger className="w-[180px]">
+          <Select
+            {...register("city", {
+              required: "Merci de choissir une ville",
+            })}
+          >
+            <SelectTrigger id="city" className="w-[180px]">
               <SelectValue placeholder="Selectinez votre votre ville " />
             </SelectTrigger>
             <SelectContent>
@@ -61,14 +80,17 @@ function SelectGroupCustum() {
           </Select>
           <br />
           <span id="spanInput1">
-            <Label htmlFor="spanInput1"> Nom </Label>
+            <Label htmlFor="spanInput1">Nom</Label>
             <Input
+              {...register("name", {
+                required: "Le nom est requis",
+              })}
               className="w-[180px]"
               id="spanInput1"
               placeholder="Entrer votre nom ! "
-            ></Input>
+            />
           </span>
-          <br />
+
           <Calendar24></Calendar24>
           <br></br>
           <button
@@ -78,6 +100,9 @@ function SelectGroupCustum() {
             Cliquez ici{" "}
           </button>
         </form>
+        <div>
+          <TableData></TableData>
+        </div>
       </div>
     </>
   );

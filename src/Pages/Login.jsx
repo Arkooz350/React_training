@@ -5,12 +5,14 @@ import Button from "@mui/material/Button";
 import { Navigate, NavLink, useNavigate, Route } from "react-router-dom";
 import axios from "axios";
 import TaskReducer from "@/Composant/Tableaux/TasksReducer";
-import IsAuth from "@/utils/IsAuth";
+
 import { Alert, AlertTitle } from "@/components/ui/alert";
 import { CheckCircle2Icon } from "lucide-react";
 import { DataStatusLogin } from "@/utils/ContextLogin.jsx";
 import { useContext } from "react";
 import { DataContextProvider } from "@/utils/ContextLogin.jsx";
+import { Dashboard } from "@mui/icons-material";
+import PrivateRoute from "@/utils/PrivateRoute";
 
 function LoginComposant() {
   const valueContext = useContext(DataStatusLogin);
@@ -19,10 +21,12 @@ function LoginComposant() {
     saveresponse: {},
     error: {},
   });
-  IsAuth;
+
   const [dataStatus, setdataStatus] = useState({});
   const navigate = useNavigate();
   const [datauser, setdataUser] = useState({});
+  const [isDataSuccess, setisDataSuccess] = useState(false);
+  const [data, setdata] = useState(null);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -31,8 +35,6 @@ function LoginComposant() {
       ...datauser,
       [name]: value,
     });
-    console.log(pressdata);
-    console.log(datauser.mail);
   };
 
   const handleConnection = async (e) => {
@@ -47,9 +49,37 @@ function LoginComposant() {
         setdataStatus(response);
         if (response.status === 200) {
           navigate("/dashbord");
+          setisDataSuccess(true);
         }
       })
       .catch((err) => console.error(err));
+  };
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      navigate("/login");
+      return;
+    }
+    fecthdata();
+  }, [navigate]);
+  const fecthdata = async () => {
+    try {
+      const response = await fetch("http://localhost:3306/api/auth/verify", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+      });
+      if (!response.ok) {
+        throw new Error("NON autoriqse");
+      }
+      const resulatat = await response.json();
+      setdata(resulatat);
+    } catch (error) {
+      localStorage.clear("token");
+      navigate("/login");
+    }
   };
 
   return (
@@ -63,7 +93,7 @@ function LoginComposant() {
 
         <div className="FormularForLogin">
           <label htmlFor="inputMail" /> Adresse-mail :
-          <form onSubmit={(e) => e.preventDefault()}>
+          <form onSubmit={handleConnection}>
             <input
               required
               id="inputMail"
@@ -86,7 +116,6 @@ function LoginComposant() {
             />
             <br></br>
             <Button
-              onClick={handleConnection}
               type="submit"
               style={{ backgroundColor: "GrayText", justifyItems: "center" }}
             >
@@ -100,8 +129,8 @@ function LoginComposant() {
           Mot de passe Oublier ?
           <br />
           <NavLink to="/register">S'inscrire</NavLink>
-          <DataContextProvider children={dataStatus} />
         </div>
+        <DataContextProvider children={dataStatus} />
       </div>
     </>
   );

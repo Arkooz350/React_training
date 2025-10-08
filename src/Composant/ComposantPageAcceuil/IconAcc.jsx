@@ -4,7 +4,7 @@ import { DataStatusLogin } from "@/utils/ContextLogin";
 
 function IconAcc() {
   const { donnes } = useContext(DataStatusLogin);
-  console.log(donnes);
+
   return (
     <>
       {donnes.status === 200 && (

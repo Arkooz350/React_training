@@ -1,6 +1,6 @@
 import IconAcc from "@/Composant/ComposantPageAcceuil/IconAcc";
 import { createContext, useContext, useState } from "react";
-import IsAuth from "./IsAuth";
+import PrivateRoute from "@/utils/PrivateRoute";
 import { UseDataHooks } from "@/hooks/UseDataHooks";
 
 export const DataStatusLogin = createContext({
@@ -11,7 +11,6 @@ export const DataContextProvider = (children) => {
     <>
       <DataStatusLogin.Provider value={{ donnes: children.children }}>
         <IconAcc></IconAcc>
-        <IsAuth></IsAuth>
       </DataStatusLogin.Provider>
     </>
   );
